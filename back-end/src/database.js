@@ -3,10 +3,11 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-// MongoDB env's
+// // MongoDB env's
+
 const DB_PORT = process.env.DB_PORT;
-const DB_HOST = process.env.HOST;
+const DB_HOST = process.env.DB_HOST;
 
-const DB_CONNECTION = mongoose.connect(`mongodb://${DB_HOST}:${DB_PORT}`);
+const DB_CONNECTION = mongoose.connect(`mongodb://${DB_HOST}:${DB_PORT}/calendar`, console.log('Database Connected!')).catch(error => console.log('MONGODB ERROR: ', error));
 
-module.exports = { DB_CONNECTION };
+export default DB_CONNECTION;

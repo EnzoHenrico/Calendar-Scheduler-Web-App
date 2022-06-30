@@ -2,23 +2,24 @@ import express from 'express';
 import dotenv from 'dotenv';
 
 import authentication from './api/controllers/authentication.js';
+import database from './database.js';
 
 dotenv.config();
 
 const PORT = process.env.PORT;
 
+// Create Express server & instace a router
 const app = express();
 const router = express.Router();
 
+// Server parse JSON payloads & set initial router
 app.use(express.json());
 app.use('/api/v1', router);
 
 router.use('/authentication', authentication);
-
 app.listen(PORT, () => console.log(`server listen on localhost:${PORT}`));
 
-//  Server Test
+//  Server Health Test
 router.get('/', (req, res) => {
     res.send("Server Ok!");
 });
-
