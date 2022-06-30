@@ -1,12 +1,14 @@
 import express from 'express';
 import dotenv from 'dotenv';
 
-import authentication from './api/controllers/authentication.js';
-import database from './database.js';
+import authentication from './api/controllers/authentication';
+import database from './database';
 
 dotenv.config();
 
-const PORT = process.env.PORT;
+await database;
+
+const { PORT } = process.env;
 
 // Create Express server & instace a router
 const app = express();
@@ -21,5 +23,5 @@ app.listen(PORT, () => console.log(`server listen on localhost:${PORT}`));
 
 //  Server Health Test
 router.get('/', (req, res) => {
-    res.send("Server Ok!");
+  res.send('Server Ok!');
 });
