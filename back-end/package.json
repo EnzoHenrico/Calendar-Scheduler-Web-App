@@ -1,0 +1,17 @@
+{
+  "name": "desafio-tokenlab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/api/app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.4.1",
+    "nodemon": "^2.0.18"
+  }
+}
