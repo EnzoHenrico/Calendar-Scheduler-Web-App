@@ -11,7 +11,7 @@ const { DB_HOST } = process.env;
 // async function DB_CONNECTION() {
 //   try {
 //     await mongoose.connect(`mongodb://${DB_HOST}:${DB_PORT}/calendar`);
-//     console.log('Database Connected!'); 
+//     console.log('Database Connected!');
 //   } catch (error) {
 //     console.log('MONGODB ERROR: ', error);
 //   }

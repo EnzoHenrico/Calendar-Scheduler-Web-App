@@ -18,7 +18,10 @@ const router = express.Router();
 app.use(express.json());
 app.use('/api/v1', router);
 
+// Set routes
 router.use('/authentication', authentication);
+
+// Server initial log
 app.listen(PORT, () => console.log(`server listen on localhost:${PORT}`));
 
 //  Server Health Test
