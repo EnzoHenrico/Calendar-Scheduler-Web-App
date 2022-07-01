@@ -1,30 +1,56 @@
-# Instruções do desafio: 
+# To-do List (API)
+### APP
+- [x] Express
+  - Start Express server
+  - Instance server router
+  - Start server
+- [ ] Set a top-level handler for any unexpected error
+### Controllers
+- [ ] Routes:
+  - [x] /sign-up: User registration with username and password
+    - Recive a Json payload with username, password and password confimation
+    - Do a validation from recived payload
+    - if no errors, call a service to register
+    - Recive back an '201' Created code with user Id or an especifc error code with log message
+  - [ ] /sign-in: User login with username and password
+    - Recive a Json payload with username and password
+    - Call a service to validate login inputs
+    - If invalid recive an '401' Unauthorized status and message 
+    - If valid recive an '202' Acepted and a json with user data
+    - Create a JWT to validate user requests while logged in
+  - [ ] /user
+    - User JWT validation to every request
+### Services
+- [ ] Authentication:
+  - [x] Sign-Up:
+    - Search in the database if user already exist
+    - if exists send an '409' Conflict code and message
+    - if don't, registrate new user in database (password should be crypted in HASH)
+    - Successfull registration send a '201' Created code and new user Id back to controller
+    - Catch any database error, if it happens, and handle with a message and '500' status code
+  - [ ] Sign-in:
+    - Search in the database if user already exists
+    - If exists verify HASH password validation
+    - In case of success search user in database and get data(_id, username, events)
+    - Send to controller the data and 
 
-### O sistema deverá prover as seguintes funcionalidades
-▪ Cadastro de usuário;
-▪ Login para acesso ao sistema;
-▪ Adição de eventos;
-▪ Edição de eventos;
-▪ Remoção de eventos;
-▪ Listagem de eventos;
+### Database
+- Mongoose:
+  - [x] Create database connection and log promise
+  - [x] Inport in app asyncronous for security
+  - [x] Create Schemas for User and the Events:
+    - Each User contains:
+      - ID (mongoDb generated)
+      - Username
+      - Password
+      - Events Array (include references associated with events)
+    - Each Event contains:
+      - Start date
+      - End date
+      - Description
+      - A Creator (A reference from who belongs the event)
+  - [x] Export modules
+### General
 
-### Os atributos necessários para o evento são:
-▪ Descrição;
-▪ Hora de início;
-▪ Hora de término;
-
-### Obrigatório para CLT e opcional para estágio:
-▪ Não deixar sobrescrever eventos e caso ocorra, emitir um alerta para o usuário;
-▪ Suporte a vários usuários;
-▪ Eventos ligados ao usuário que os criou;
-▪ Frontend renderizado no lado do cliente;
-
-### Os atributos a seguir não são obrigatórios, porém serão considerados como um diferencial na seleção do candidato:
-▪ Eventos com duração de mais de um dia;
-▪ Caso haja suporte a vários usuários, também poderá ser implementado o convite a outros usuários para eventos, ou seja, o evento aparecerá no calendário do usuário convidado e o usuário convidado poderá responder se poderá participar ou não (RSVP);
-▪ Responsividade, assim como o uso de Bootstrap ou outro framework CSS;
-▪ Alguma funcionalidade diferente que você pensar;
-
-Poderá ser utilizada a linguagem e o banco de dados de preferência do desenvolvedor, bem como o uso de frameworks.
-Não será necessário fazer deploy em servidor, apenas apresentação na máquina do candidato e envio antecipado do código, mas se quiser pode.
-Pense no polimento do seu projeto, na qualidade do código e em boas práticas de projetos em produção.
+- [x] Use ambient variables to sensitive information 
+- [ ] Create a strings library for logs

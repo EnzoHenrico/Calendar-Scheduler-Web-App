@@ -1,8 +1,8 @@
 import express from 'express';
 import dotenv from 'dotenv';
 
-import authentication from './api/controllers/authentication';
-import database from './database';
+import authentication from './api/controllers/authentication.js';
+import database from './database.js';
 
 dotenv.config();
 

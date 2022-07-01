@@ -7,11 +7,13 @@ Solução para o desafio Técnico para vaga de estágio na Tokenlab.
 ### BackEnd ↓
 
 - Arquitetura: Api REST
-- Principal tecnologia: Node.JS (Typescript) w/ Express
-- Database: MongoDB w/ Mongoose
+- Principal: Node.JS (Javascript)
+- Database: MongoDB
+- Dependecias: Express, Mongoose, jsonwebtoken, bcrypt, dotenv
 
 Outras informações:
 
 - Autenticação via JWT
+- Criptografia de senhas HASH
 
 ### FrontEnd ↓
