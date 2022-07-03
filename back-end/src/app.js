@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 
 import authentication from './api/controllers/authentication.js';
+import events from './api/controllers/events.js';
 import database from './database.js';
 
 dotenv.config();
@@ -20,6 +21,7 @@ app.use('/api/v1', router);
 
 // Set routes
 router.use('/authentication', authentication);
+router.use('/events', events);
 
 // Server initial log
 app.listen(PORT, () => console.log(`server listen on localhost:${PORT}`));

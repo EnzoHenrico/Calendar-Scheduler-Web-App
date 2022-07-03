@@ -10,24 +10,48 @@
 
 ### Controllers
 
-- [ ] Routes:
+- [x] Authentication Routes:
+
   - [x] /sign-up: User registration with username and password
-    - Recive a Json payload with username, password and password confimation
+    - Recive a payload with username, password and password confimation
     - Do a validation from recived payload
     - if no errors, call a service to register
-    - Recive back an '201' Created code with user Id or an especifc error code with log message
+    - Send back an status code and message
   - [x] /sign-in: User login with username and password
-    - Recive a Json payload with username and password
+    - Recive a payload with username and password
     - Call a service to validate login inputs
-    - If invalid recive an '401' Unauthorized status and message
-    - If valid recive an '202' Acepted and a json with user data
     - Create a JWT to validate user requests while logged in
+    - Send back an status code and message
   - [x] /user
     - User JWT validation to every request
+    - Send back an status code and message
+
+- [ ] Events Routes:
+  - [x] /create: User request to add a new event in you calendar
+    - Recive a paylaod with initial Date, End Date, Description and User ID
+    - Validate recived data
+    - Call a service to create a new event (recive: initDate, endDate, description and userId)
+    - Send back a status code and message
+  - [x] /list: User request to access a list of all events
+    - Recive a paylaod User ID
+    - Validate Token with Middleware
+    - Call a service to get all registered events (recive user ID)
+    - Send back a status code and all events information payload
+  - [x] /update: User request to update a especif event information
+    - Recive a paylaod with Event ID, User ID and what information want to change
+    - Validate Token with Middleware
+    - Call a service to update info (recive : eventId, userId, { infoName: newInfo })
+    - Send back a status code and message
+  - [x] /delete: User request to delete a event
+    - Recive a paylaod with Event ID and User ID
+    - Validate Token with Middleware
+    - Call a service to delete event (recive> enventId, userId)
+    - Send back a status code and message
 
 ### Services
 
-- [ ] Authentication:
+- [x] Authentication:
+
   - [x] Sign-Up:
     - Search in the database if user already exist
     - if exists send an '409' Conflict code and message
@@ -39,6 +63,22 @@
     - If exists verify HASH password validation
     - In case of success search user in database and get data(\_id, username, events)
     - Send user data to controller
+
+- [x] Events:
+
+  - [x] Create Event: recive initDate, endDate, description and userId
+    - Create event in database
+    - Find user and update events to relation event/user
+    - Send back to controller '201' Created and success message
+  - [x] Read Events: recive user ID
+    - Find User and filter only the events
+    - Send back to controller '202' and a payload with all events
+  - [x] Update Event: recive eventId, userId, { infoName: newInfo }
+    - Find event and update infos
+    - Send back to controller '202' and success message
+  - [x] Delete: recive enventId, userId
+    - Find Event and delete
+    - Send back to controller '202' and success message
 
 ### Database
 

@@ -1,25 +1,57 @@
-// import express from 'express';
-// import jwt from 'jsonwebtoken';
-// import dotenv from 'dotenv';
+/* eslint-disable object-curly-newline */
+import { Event } from '../models/db_schema.js';
+import strings from '../models/strings.js';
 
-// import { Event } from '../models/db_schema.js';
+const errorMessages = strings.errors;
+const succesMessages = strings.success;
 
-// /**
-//  *
-//  *
-//  */
-// export function addEvent(payload) {
+async function createEvent(payload) {
+  try {
+    // Insert Event in database
+    await Event.create(payload);
+    return { status: 201, message: succesMessages.databse.create };
+  } catch (error) {
+    return {
+      status: 500,
+      message: `${errorMessages.database.create}: ${error.toString()}`,
+    };
+  }
+}
 
-// }
+async function getEventbyId(eventId) {
+  try {
+    const { events } = await Event.findOne(eventId);
+    return { status: 200, message: succesMessages.databse.read, events };
+  } catch (error) {
+    return {
+      status: 500,
+      message: `${errorMessages.database.read}: ${error.toString()}`,
+    };
+  }
+}
 
-// export function editEvent(payload) {
+async function updateEvent(eventId, changes) {
+  try {
+    await Event.findByIdAndUpdate(eventId, changes);
+    return { status: 200, message: succesMessages.databse.update };
+  } catch (error) {
+    return {
+      status: 500,
+      message: `${errorMessages.database.unknown}: ${error.toString()}`,
+    };
+  }
+}
 
-// }
+async function deleteEvent(eventId) {
+  try {
+    await Event.findByIdAndDelete(eventId);
+    return { status: 200, message: succesMessages.databse.delete };
+  } catch (error) {
+    return {
+      status: 500,
+      message: `${errorMessages.database.unknown}: ${error.toString()}`,
+    };
+  }
+}
 
-// export function removeEvent(payload) {
-
-// }
-
-// export function listEvents(payload) {
-
-// }
+export { createEvent, updateEvent, getEventbyId, deleteEvent };

@@ -2,16 +2,16 @@ import express from 'express';
 import bcrypt from 'bcrypt';
 import { body, validationResult } from 'express-validator';
 
-import {} from '../models/db_schema.js';
+import strings from '../models/strings.js';
 import {
   registerUser,
   verifyLogin,
   createToken,
 } from '../services/authentication.js';
-import authorizeToken from '../middlewares/authentication.js';
 
 const router = express.Router();
 const saltRounds = parseInt(process.env.SALT_ROUNDS, 10);
+const messages = strings.errors.auth;
 
 // Register router (/sign-up)
 router.post(
@@ -26,10 +26,10 @@ router.post(
     if (!errors.isEmpty()) {
       return res
         .status(400)
-        .json({ message: 'Invalid Payload', error: errors.array() });
+        .json({ message: messages.input, error: errors.array() });
     }
     if (password !== passwordConfirm) {
-      return res.status(403).json({ message: 'Password dont Match' });
+      return res.status(403).json({ message: messages.matchKey });
     }
     const hash = bcrypt.hashSync(password, saltRounds);
     const response = await registerUser(username, hash);
@@ -49,33 +49,23 @@ router.post(
 
     if (!errors.isEmpty()) {
       return res.status(403).json({
-        message: 'Username or password invalid format',
+        message: messages.input,
         error: errors.array(),
       });
     }
 
     try {
-      const verifyData = await verifyLogin(username, password);
-      verifyData.payload.token = createToken(verifyData.payload.data);
-      return res.status(verifyData.status).json(verifyData.payload);
+      const serviceResult = await verifyLogin(username, password);
+      if (serviceResult.status === 202) {
+        serviceResult.payload.token = createToken(serviceResult.payload.data);
+      }
+      return res.status(serviceResult.status).json(serviceResult.payload);
     } catch (error) {
-      return res.status(500).json({ error: error.toString() });
+      return res
+        .status(400)
+        .json({ error: `${messages.token}: ${error.toString()}` });
     }
   },
 );
-
-// Validate token in header
-router.get('/user', authorizeToken, (req, res) => {
-  res.send('Autenticado');
-});
-
-// Router tests
-router.get('/auth', (req, res) => {
-  res.status(200).send('Authentication route ok!');
-});
-
-router.post('/test-post', (req, res) => {
-  res.status(200).send(`Recived Data:<br>${JSON.stringify(req.body)}`);
-});
 
 export default router;
