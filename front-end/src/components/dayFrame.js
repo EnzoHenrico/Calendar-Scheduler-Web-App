@@ -1,11 +1,10 @@
-const DayFrame = ({ event, day }) => {
+const DayFrame = ({ event, day, eventName }) => {
   return (
     <div className="day-frame">
-      <label>1{day}</label>
-      <button type="button" value={event}>
-        +
+      <button type="button" id="event" value={event}>
+        +{eventName}
       </button>
-      ;
+      <label for="event">1{day}</label>
     </div>
   );
 };

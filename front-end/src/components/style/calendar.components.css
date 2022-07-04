@@ -1,0 +1,21 @@
+.calendar{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  width: 100%;
+  background-color: rgb(238, 237, 237);
+}
+
+.calendar .date-selectors {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  justify-content: center
+}
+
+.calendar .date-selectors select{
+  width: 110px;
+  height: 50px;
+  font-size: 36px;
+}

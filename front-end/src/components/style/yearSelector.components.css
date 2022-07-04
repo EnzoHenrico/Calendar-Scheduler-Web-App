@@ -1,0 +1,26 @@
+.calendar .date-selectors .year-selector{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar .date-selectors .year-selector input{
+  width: 105px;
+  height: 48px;
+  font-size: 40px;
+}
+
+.calendar .date-selectors .year-selector .buttons{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.calendar .date-selectors .year-selector button{
+  width: 15px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+}

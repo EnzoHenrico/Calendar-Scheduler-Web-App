@@ -1,12 +1,13 @@
 import './App.css';
-import Calendar from './components/calendar';
+import './components/style/body.components.css';
 import Header from './components/header';
+import Hero from './components/hero';
 
 const App = () => {
   return (
     <div className="App">
       <Header />
-      <Calendar />
+      <Hero />
     </div>
   );
 };

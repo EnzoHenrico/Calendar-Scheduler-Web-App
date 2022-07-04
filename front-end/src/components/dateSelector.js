@@ -1,10 +1,11 @@
-const DateSelector = (props) => {
+import MonthSelector from './monthSelector';
+import YearSelector from './yearSelector';
+
+const DateSelector = () => {
   return (
     <div className="date-selectors">
-      <input type="number"></input>
-      <select className="month-selector">
-        <option>{props.month}</option>
-      </select>
+      <YearSelector />
+      <MonthSelector />
     </div>
   );
 };
