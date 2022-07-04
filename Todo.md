@@ -101,4 +101,4 @@
 ### General
 
 - [x] Use ambient variables to sensitive information
-- [ ] Create a strings library for logs
+- [x] Create a strings library for logs
