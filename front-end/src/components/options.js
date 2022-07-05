@@ -2,7 +2,7 @@ import './style/options.components.css';
 import { useState } from 'react';
 
 const Options = () => {
-  const [newEventName, setNewEventName] = useState('New Event');
+  const [newEventName, setNewEventName] = useState('');
   const [initDate, setInitDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [description, setDescription] = useState('');
@@ -16,6 +16,7 @@ const Options = () => {
     <div className="options-container">
       <div className="event-container">
         <input
+          placeholder='New Event'
           value={newEventName}
           onChange={(e) => setNewEventName(e.target.value)}
         ></input>

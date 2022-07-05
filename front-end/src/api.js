@@ -1,9 +1,11 @@
-export const get = async (endpoint) => {
+const get = async (endpoint, user) => {
   const token = getToken();
   const options = {
+    method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
     },
+    user,
   };
 
   const response = await fetch(endpoint, options);
@@ -14,9 +16,12 @@ export const get = async (endpoint) => {
   }
 
   const json = response.json();
+  console.log('API: ', json);
   return json;
 };
 
 const getToken = () => {
   return localStorage.getItem('token');
 };
+
+export default get;
