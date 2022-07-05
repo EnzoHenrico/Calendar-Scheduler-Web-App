@@ -5,24 +5,24 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import Home from './components/home';
-import Signin from './components/signin';
-import Signup from './components/signup';
-import ErrorPage from './components/errorPage';
+import Home from './pages/home';
+import Signin from './pages/signin';
+import Signup from './pages/signup';
+import ErrorPage from './pages/errorPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-      <React.StrictMode>
+    <React.StrictMode>
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="signin" element={<Signin />} />
         <Route path="signup" element={<Signup />} />
-        <Route path="home/:username" element={<Home />}/>
-        <Route path='*' element={<ErrorPage />}/>
+        <Route path="home" element={<Home />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
-      </React.StrictMode>
-  </BrowserRouter>
+    </React.StrictMode>
+  </BrowserRouter>,
 );
 
 // If you want to start measuring performance in your app, pass a function

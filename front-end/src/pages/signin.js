@@ -33,14 +33,12 @@ const Signin = () => {
       );
       const { message, data, token } = await response.json();
       localStorage.setItem('token', token);
-      console.log('data:', data, 'token', token);
-      
+      localStorage.setItem('id', data.userId);
 
-      if(response.status === 202){
-        return navigate(`/home/${data.userId}`); 
+      if (response.status === 202) {
+        return navigate(`/home`);
       }
       setError(message);
-
     } catch (error) {
       console.log(error);
     }
@@ -64,7 +62,7 @@ const Signin = () => {
         onChange={(e) => setPassword(e.target.value)}
       ></input>
       <button type="submit">Send</button>
-      <div className='error-message'>{error}</div>
+      <div className="error-message">{error}</div>
     </form>
   );
 };

@@ -1,3 +1,5 @@
+import './days.css';
+
 const DayFrame = ({ event, day, eventName }) => {
   return (
     <div className="day-frame">

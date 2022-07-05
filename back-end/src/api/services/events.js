@@ -6,9 +6,14 @@ const errorMessages = strings.errors;
 const succesMessages = strings.success;
 
 async function createEvent(payload) {
+  const { _author, eventName, initHour, endHour, description } = payload;
+
+  const initDate = new Date(initHour);
+  const endDate = new Date(endHour);
+
   try {
     // Insert Event in database
-    await Event.create(payload);
+    await Event.create({ _author, eventName, initDate, endDate, description });
     return { status: 201, message: succesMessages.databse.create };
   } catch (error) {
     return {

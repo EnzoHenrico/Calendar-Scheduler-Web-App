@@ -1,23 +1,24 @@
+import { Link } from 'react-router-dom';
+
 import './App.css';
-import './components/style/body.components.css';
+import './pages/body.css';
 // import Header from './components/header';
 // import Hero from './components/hero';
 // import Signin from './components/signin';
 // import Signup from './components/signup';
 
-import { Link } from 'react-router-dom';
-
 const App = () => {
   return (
     <div className="App">
-      <Link to='/home'>Home</Link>
-      <Link to='/signin'>Login</Link>
-      <Link to='/signup'>Register</Link>
+      <Link to="/home">Home</Link>
+      <Link to="/signin">Login</Link>
+      <Link to="/signup">Register</Link>
     </div>
   );
 };
 
-{/* <Route path='/login'>
+{
+  /* <Route path='/login'>
             <Signin />
         </Route>
         <Route path='/register'>
@@ -26,6 +27,7 @@ const App = () => {
         <Route path='/home'>
             <Header />
             <Hero /> 
-        </Route> */}
+        </Route> */
+}
 
 export default App;

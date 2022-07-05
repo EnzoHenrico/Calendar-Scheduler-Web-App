@@ -1,4 +1,4 @@
-import './style/yearSelector.components.css';
+import './yearSelector.css';
 
 const YearSelector = ({ value, onChange }) => {
   const increment = () => {
