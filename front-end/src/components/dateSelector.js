@@ -1,11 +1,14 @@
 import MonthSelector from './monthSelector';
 import YearSelector from './yearSelector';
 
-const DateSelector = () => {
+const DateSelector = ({ value, onChange }) => {
+  const { year, month } = value;
+  const { setYear, setMonth } = onChange;
+
   return (
     <div className="date-selectors">
-      <YearSelector />
-      <MonthSelector />
+      <YearSelector value={year} onChange={setYear} />
+      <MonthSelector value={month} onChange={setMonth} />
     </div>
   );
 };

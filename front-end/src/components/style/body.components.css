@@ -5,3 +5,7 @@
   font-family: 'Roboto Mono', monospace;
   ;
 }
+
+.App{
+  height: 100vh;
+}

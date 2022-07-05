@@ -9,7 +9,7 @@ async function authorizeToken(req, res, next) {
   const token = headerData && headerData.split(' ')[1];
 
   if (!token) {
-    res.status(500).json({ message: strings.errors.auth.foundToken });
+    res.status(401).json({ message: strings.errors.auth.foundToken });
   }
 
   try {
@@ -17,7 +17,7 @@ async function authorizeToken(req, res, next) {
     req.user = await User.findOne({ _id: tokenData.userId });
   } catch (error) {
     res
-      .status(500)
+      .status(401)
       .json({ message: strings.errors.database.read, error: error.toString() });
   }
 

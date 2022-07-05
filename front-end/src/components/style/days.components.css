@@ -6,19 +6,18 @@
 
 .calendar .day-frame {
   display: flex;
-  flex-direction: row-reverse;
   align-items: center;
   gap: 10px;
   font-size: 24px;
+  width: 100%;
 }
 
 .calendar .day-frame button{
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   margin: 10px 0px;
-  width: 365px;
-  height: 42px;
   border: 1px solid rgb(172, 172, 172);
   border-radius: 5px;
 }

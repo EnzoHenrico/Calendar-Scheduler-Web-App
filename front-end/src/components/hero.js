@@ -2,14 +2,14 @@ import Options from './options';
 import Calendar from './calendar';
 import './style/hero.components.css';
 
-const Hero = () =>{
+const Hero = () => {
   return (
-  <div className='hero'>
+    <div className="hero">
       <Calendar />
       <div className="divisor"></div>
       <Options />
-  </div>
-  )
-}
+    </div>
+  );
+};
 
 export default Hero;

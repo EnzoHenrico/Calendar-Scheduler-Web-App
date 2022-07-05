@@ -1,17 +1,19 @@
 .calendar{
   display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  width: 100%;
-  background-color: rgb(238, 237, 237);
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    overflow-y: scroll;
+    background-color: rgb(238, 237, 237);
 }
 
 .calendar .date-selectors {
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
-  justify-content: center
+  gap: 20px;
+  justify-content: center;
+  margin: 50px;
 }
 
 .calendar .date-selectors select{
