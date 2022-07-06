@@ -48,24 +48,35 @@ const Signin = () => {
 
   // Login component
   return (
-    <form className="signin-container" onSubmit={handleSubmit}>
-      <label htmlFor="login">Username:</label>
-      <input
-        type="text"
-        id="login"
-        value={username}
-        onChange={(e) => setUser(e.target.value)}
-      ></input>
-      <label htmlFor="key">Password:</label>
-      <input
-        type="password"
-        id="key"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      ></input>
-      <button type="submit">Send</button>
-      <div className="error-message">{error}</div>
-    </form>
+    <div className="background">
+      <h1>Calendar</h1>
+      <form className="login-context" onSubmit={handleSubmit}>
+        <div className="signin-container">
+          <div className="username-fields">
+            <label htmlFor="login">Username:</label>
+            <input
+              type="text"
+              id="login"
+              value={username}
+              onChange={(e) => setUser(e.target.value)}
+            ></input>
+          </div>
+          <div className="password-fields">
+            <label htmlFor="key">Password:</label>
+            <input
+              type="password"
+              id="key"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            ></input>
+          </div>
+          <button className="login-button" type="submit">
+            login
+          </button>
+          <div className="error-message">{error}</div>
+        </div>
+      </form>
+    </div>
   );
 };
 

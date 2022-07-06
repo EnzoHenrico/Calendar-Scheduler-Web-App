@@ -10,24 +10,19 @@ import './pages/body.css';
 const App = () => {
   return (
     <div className="App">
-      <Link to="/home">Home</Link>
-      <Link to="/signin">Login</Link>
-      <Link to="/signup">Register</Link>
+      <ul>
+        <li>
+          <Link to="/home">Home</Link>
+        </li>
+        <li>
+          <Link to="/signin">Login</Link>
+        </li>
+        <li>
+          <Link to="/signup">Register</Link>
+        </li>
+      </ul>
     </div>
   );
 };
-
-{
-  /* <Route path='/login'>
-            <Signin />
-        </Route>
-        <Route path='/register'>
-            <Signup />
-        </Route>
-        <Route path='/home'>
-            <Header />
-            <Hero /> 
-        </Route> */
-}
 
 export default App;
