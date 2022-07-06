@@ -18,7 +18,7 @@ const get = async (endpoint) => {
   return json;
 };
 
-const post = async (endpoint, body, user) => {
+const post = async (endpoint, body) => {
   const token = getToken();
   const options = {
     method: 'POST',
@@ -28,7 +28,6 @@ const post = async (endpoint, body, user) => {
       'Content-Type': 'application/json',
     },
     body,
-    user,
   };
 
   try {
@@ -44,10 +43,13 @@ const post = async (endpoint, body, user) => {
 const patch = async (endpoint, body) => {
   const token = getToken();
   const options = {
-    method: 'GET',
+    method: 'PATCH',
     headers: {
       Authorization: `Bearer ${token}`,
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
     },
+    body,
   };
 
   const response = await fetch(endpoint, options);
@@ -61,12 +63,14 @@ const patch = async (endpoint, body) => {
   return json;
 };
 
-const reqDelete = async (endpoint, body) => {
+const reqDelete = async (endpoint) => {
   const token = getToken();
   const options = {
-    method: 'GET',
+    method: 'DELETE',
     headers: {
       Authorization: `Bearer ${token}`,
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
     },
   };
 

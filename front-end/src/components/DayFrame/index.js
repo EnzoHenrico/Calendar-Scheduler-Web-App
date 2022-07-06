@@ -9,7 +9,7 @@ const DayFrame = ({ day, events, onClick, onEventClick }) => {
           className="event-button"
           type="button"
           key={e._id}
-          onClick={() => onEventClick(e)}
+          onClick={() => onEventClick({hasEvent: true, eventData: e})}
         >
           {e.eventName}
         </button>

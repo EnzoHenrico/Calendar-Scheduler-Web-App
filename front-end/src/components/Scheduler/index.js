@@ -57,9 +57,10 @@ const Scheduler = ({ date }) => {
   return (
     <form onSubmit={handleSubmit} className="options-container">
       <div className="event-container">
-        <div className="month-year">
+        <div className="container-header">
+          <h3>Create Event</h3>
           <p>
-            {date.day} {date.month} {date.year}
+           Courent Day: {date.day}/{date.month}/{date.year}
           </p>
         </div>
         <input

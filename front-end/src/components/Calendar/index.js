@@ -4,7 +4,7 @@ import YearSelector from '../YearSelector';
 
 import './calendar.css';
 
-const Calendar = ({ days, date, setDate }) => {
+const Calendar = ({ days, date, setDate, setDayData }) => {
   return (
     <div className="calendar">
       <div className="date-selectors">
@@ -23,7 +23,10 @@ const Calendar = ({ days, date, setDate }) => {
             key={day.day}
             day={day.day}
             events={day.events}
-            onClick={() => setDate((prev) => ({ ...prev, day: day.day }))}
+            onClick={() =>{
+            setDate((prev) => ({ ...prev, day: day.day }));
+            setDayData({hasEvent: false, eventData: null})}}
+            onEventClick={(e) => setDayData(e)}
           />
         ))}
       </div>
