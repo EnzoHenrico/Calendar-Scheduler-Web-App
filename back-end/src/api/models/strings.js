@@ -15,7 +15,11 @@ export default {
       credentials: 'Invalid Credentials',
       login: 'Error on login',
     },
-    events: {},
+    events: {
+      missingEvent: 'Event has to countain start and end',
+      hourConflic: "Event end can't be after the start",
+      enventOnPast: "Events can't be on the past",
+    },
   },
   success: {
     databse: {

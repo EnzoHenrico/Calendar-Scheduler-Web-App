@@ -1,4 +1,6 @@
 /* eslint-disable object-curly-newline */
+import { startOfMonth, endOfMonth } from 'date-fns';
+
 import { Event } from '../models/db_schema.js';
 import strings from '../models/strings.js';
 
@@ -6,14 +8,9 @@ const errorMessages = strings.errors;
 const succesMessages = strings.success;
 
 async function createEvent(payload) {
-  const { _author, eventName, initHour, endHour, description } = payload;
-
-  const initDate = new Date(initHour);
-  const endDate = new Date(endHour);
-
   try {
     // Insert Event in database
-    await Event.create({ _author, eventName, initDate, endDate, description });
+    await Event.create(payload);
     return { status: 201, message: succesMessages.databse.create };
   } catch (error) {
     return {
@@ -23,10 +20,24 @@ async function createEvent(payload) {
   }
 }
 
-async function getEventbyId(eventId) {
+async function getEventbyMonth(date, author) {
   try {
-    const { events } = await Event.findOne(eventId);
-    return { status: 200, message: succesMessages.databse.read, events };
+    // Filter by month
+    const start = startOfMonth(date);
+    const end = endOfMonth(date);
+    const events = await Event.find({
+      initDate: { $gte: start, $lt: end },
+      _author: author,
+    });
+
+    // Creates an array with 1 item for each day with their events
+    const numDays = end.getDate();
+    const days = Array.from({ length: numDays }, (v, i) => ({
+      day: i + 1,
+      events: events.filter((e) => e.initDate.getDate() === i + 1),
+    }));
+
+    return { status: 200, message: succesMessages.databse.read, days };
   } catch (error) {
     return {
       status: 500,
@@ -59,4 +70,4 @@ async function deleteEvent(eventId) {
   }
 }
 
-export { createEvent, updateEvent, getEventbyId, deleteEvent };
+export { createEvent, updateEvent, getEventbyMonth, deleteEvent };

@@ -34,9 +34,9 @@ const EventSchema = new Schema({
     ref: 'User',
     required: true,
   },
-  eventName: String,
-  initDate: Date,
-  endDate: Date,
+  eventName: { type: String, required: true },
+  initDate: { type: Date, required: true },
+  endDate: { type: Date, required: true },
   description: String,
 });
 
