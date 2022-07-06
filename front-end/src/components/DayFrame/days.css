@@ -20,4 +20,22 @@
   margin: 10px 0px;
   border: 1px solid rgb(172, 172, 172);
   border-radius: 5px;
+  cursor: pointer;
+}
+
+.calendar .day-frame .frames {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+}
+
+.calendar label{
+  width: 40px;
+  align-self: flex-start;
+}
+
+.calendar .day-frame .event-button{
+  margin-bottom: 0px;
+  background-color: rgba(237, 170, 0, 0.527);
 }

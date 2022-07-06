@@ -29,7 +29,7 @@ const Scheduler = ({ date }) => {
 
     const initDate = new Date(
       year,
-      month,
+      month - 1,
       day,
       parseInt(initTime[0]),
       parseInt(initTime[1]),
@@ -37,7 +37,7 @@ const Scheduler = ({ date }) => {
 
     const endDate = new Date(
       year,
-      month,
+      month - 1,
       day,
       parseInt(endTime[0]),
       parseInt(endTime[1]),
@@ -60,7 +60,7 @@ const Scheduler = ({ date }) => {
         <div className="container-header">
           <h3>Create Event</h3>
           <p>
-           Courent Day: {date.day}/{date.month}/{date.year}
+            Current Day: {date.day}/{date.month}/{date.year}
           </p>
         </div>
         <input

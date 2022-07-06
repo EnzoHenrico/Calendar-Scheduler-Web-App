@@ -2,12 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.calendar .date-selectors .year-selector input{
   width: 105px;
   height: 48px;
   font-size: 40px;
+  gap: 10px;
 }
 
 .calendar .date-selectors .year-selector .buttons{
@@ -22,5 +20,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2px;
+  padding: 5px;
 }

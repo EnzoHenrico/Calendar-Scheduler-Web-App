@@ -13,8 +13,10 @@ const Header = ({ username, profileImg }) => {
     <div className="header">
       <div className="title">Calendar</div>
       <div className="profile">
-        <p>User{username}</p>
-        <a onClick={handleLogout}>Logout</a>
+        <div className="text">
+          <p>User{username}</p>
+          <a onClick={handleLogout}>Logout</a>
+        </div>
         <div className="profile-img">{profileImg}</div>
       </div>
     </div>
