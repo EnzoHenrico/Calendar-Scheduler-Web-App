@@ -1,11 +1,21 @@
 import './days.css';
 
-const DayFrame = ({ event, day, eventName }) => {
+const DayFrame = ({ day, events, onClick, onEventClick }) => {
   return (
     <div className="day-frame">
-      <label htmlFor="event">{day}</label>
-      <button type="button" id="event" value={event}>
-        +{eventName}
+      <label htmlFor={day}>{day}</label>
+      {events.map((e) => (
+        <button
+          className="event-button"
+          type="button"
+          key={e._id}
+          onClick={() => onEventClick(e)}
+        >
+          {e.eventName}
+        </button>
+      ))}
+      <button className="empty-button" type="button" id={day} onClick={onClick}>
+        +
       </button>
     </div>
   );

@@ -2,11 +2,12 @@ import './scheduler.css';
 import { useState } from 'react';
 import { post } from '../../api';
 
-const Scheduler = ({ date, day }) => {
+const Scheduler = ({ date }) => {
   const [eventName, setEventName] = useState('');
   const [initHour, setInitDate] = useState('');
   const [endHour, setEndDate] = useState('');
   const [description, setDescription] = useState('');
+
   const postNewEvent = async (body) => {
     try {
       const response = await post(
@@ -49,12 +50,18 @@ const Scheduler = ({ date, day }) => {
       description,
     };
 
+    console.log(options);
     postNewEvent(options);
   };
 
   return (
     <form onSubmit={handleSubmit} className="options-container">
       <div className="event-container">
+        <div className="month-year">
+          <p>
+            {date.day} {date.month} {date.year}
+          </p>
+        </div>
         <input
           placeholder="New Event"
           value={eventName}

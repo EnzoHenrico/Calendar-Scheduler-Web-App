@@ -1,33 +1,30 @@
-import { useEffect, useState } from 'react';
 import DayFrame from '../DayFrame';
 import MonthSelector from '../MonthSelector';
 import YearSelector from '../YearSelector';
 
 import './calendar.css';
-// import { get } from '../../api';
 
-const Calendar = ({ setDate }) => {
-  // Calendar date state setter
-  const [year, setYear] = useState(2022);
-  const [month, setMonth] = useState(7);
-
-  // Render day frames base in month and year
-  const numOfDays = new Date(year, month, 0).getDate();
-  const array = Array.from({ length: numOfDays }, (v, i) => i + 1);
-
-  useEffect(() => {
-    setDate({ year, month });
-  }, [year, month]);
-
+const Calendar = ({ days, date, setDate }) => {
   return (
     <div className="calendar">
       <div className="date-selectors">
-        <YearSelector value={year} onChange={setYear} />
-        <MonthSelector value={month} onChange={setMonth} />
+        <YearSelector
+          value={date.year}
+          onChange={(year) => setDate((prev) => ({ ...prev, year }))}
+        />
+        <MonthSelector
+          value={date.month}
+          onChange={(month) => setDate((prev) => ({ ...prev, month }))}
+        />
       </div>
       <div className="days-board">
-        {array.map((day) => (
-          <DayFrame key={day} day={day} />
+        {days.map((day) => (
+          <DayFrame
+            key={day.day}
+            day={day.day}
+            events={day.events}
+            onClick={() => setDate((prev) => ({ ...prev, day: day.day }))}
+          />
         ))}
       </div>
     </div>
