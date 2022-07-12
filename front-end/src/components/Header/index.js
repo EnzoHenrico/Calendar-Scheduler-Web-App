@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import './header.css';
 
-const Header = ({ username, profileImg }) => {
+const Header = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -14,10 +14,10 @@ const Header = ({ username, profileImg }) => {
       <div className="title">Calendar</div>
       <div className="profile">
         <div className="text">
-          <p>User{username}</p>
+          <p>User</p>
           <a onClick={handleLogout}>Logout</a>
         </div>
-        <div className="profile-img">{profileImg}</div>
+        <div className="profile-img"></div>
       </div>
     </div>
   );

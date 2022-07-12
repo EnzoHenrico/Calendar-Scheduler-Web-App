@@ -1,12 +1,15 @@
 import './scheduler.css';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { post } from '../../api';
+import { DateContext } from '../../contexts/date';
 
-const Scheduler = ({ date }) => {
+const Scheduler = () => {
   const [eventName, setEventName] = useState('');
   const [initHour, setInitDate] = useState('');
   const [endHour, setEndDate] = useState('');
   const [description, setDescription] = useState('');
+
+  const { date } = useContext(DateContext);
 
   const postNewEvent = async (body) => {
     try {

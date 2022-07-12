@@ -1,10 +1,12 @@
-import {} from 'date-fns';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 import './update.css';
+import { DateContext } from '../../contexts/date';
 import { patch, reqDelete } from '../../api';
 
-const UpdateEvent = ({ data, date }) => {
+const UpdateEvent = ({ data }) => {
+  const { date } = useContext(DateContext);
+
   const { year, month, day } = date;
   const { _id, eventName, initDate, endDate, description } = data;
 

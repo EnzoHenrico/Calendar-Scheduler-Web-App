@@ -1,10 +1,14 @@
+import { useContext } from 'react';
+
+import { DateContext } from '../../contexts/date';
 import DayFrame from '../DayFrame';
 import MonthSelector from '../MonthSelector';
 import YearSelector from '../YearSelector';
-
 import './calendar.css';
 
-const Calendar = ({ days, date, setDate, setDayData }) => {
+const Calendar = ({ setDayData }) => {
+  const { days, date, setDate } = useContext(DateContext);
+
   return (
     <div className="calendar">
       <div className="date-selectors">
@@ -23,9 +27,10 @@ const Calendar = ({ days, date, setDate, setDayData }) => {
             key={day.day}
             day={day.day}
             events={day.events}
-            onClick={() =>{
-            setDate((prev) => ({ ...prev, day: day.day }));
-            setDayData({hasEvent: false, eventData: null})}}
+            onClick={() => {
+              setDate((prev) => ({ ...prev, day: day.day }));
+              setDayData({ hasEvent: false, eventData: null });
+            }}
             onEventClick={(e) => setDayData(e)}
           />
         ))}
