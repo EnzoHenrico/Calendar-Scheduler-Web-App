@@ -9,7 +9,7 @@ const Scheduler = () => {
   const [endHour, setEndDate] = useState('');
   const [description, setDescription] = useState('');
 
-  const { date } = useContext(DateContext);
+  const { currentDate } = useContext(DateContext);
 
   const postNewEvent = async (body) => {
     try {
@@ -28,7 +28,7 @@ const Scheduler = () => {
 
     const initTime = initHour.split(':');
     const endTime = endHour.split(':');
-    const { year, month, day } = date;
+    const { year, month, day } = currentDate;
 
     const initDate = new Date(
       year,
@@ -63,7 +63,7 @@ const Scheduler = () => {
         <div className="container-header">
           <h3>Create Event</h3>
           <p>
-            Current Day: {date.day}/{date.month}/{date.year}
+            Current Day: {currentDate.day}/{currentDate.month}/{currentDate.year}
           </p>
         </div>
         <input

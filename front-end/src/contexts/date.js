@@ -6,7 +6,7 @@ const DateContext = createContext();
 
 const DateProvider = ({ children }) => {
   const [days, setDays] = useState([]);
-  const [date, setDate] = useState({
+  const [currentDate, setCurrentDate] = useState({
     year: new Date().getFullYear(),
     month: new Date().getMonth() + 1,
     day: new Date().getDate(),
@@ -14,22 +14,20 @@ const DateProvider = ({ children }) => {
 
   const getUserEvents = async () => {
     try {
-      const { year, month } = date;
-      const time = new Date(year, month - 1, 1).getTime();
-
-      const response = await get(`http://localhost:3001/api/v1/events/${time}`);
+      const { year, month } = currentDate;
+      const timestamp = new Date(year, month - 1, 1).getTime();
+      const response = await get(`http://localhost:3001/api/v1/events/${timestamp}`);
       setDays(response);
-      console.log(response);
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
     getUserEvents();
-  }, [date.year, date.month]);
+  }, [currentDate.year, currentDate.month]);
 
   return (
-    <DateContext.Provider value={{ days, date, setDate }}>
+    <DateContext.Provider value={{ days, currentDate, setCurrentDate }}>
       {children}
     </DateContext.Provider>
   );

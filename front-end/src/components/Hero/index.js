@@ -8,15 +8,21 @@ import './hero.css';
 
 const Hero = () => {
   const [dayData, setDayData] = useState({ hasEvent: false, eventData: null });
+  
+  const dayHasAnEvent = () => {
+    if(!dayData.hasEvent){
+      return true; 
+    }
+    return false;
+  }
 
   return (
     <DateProvider>
       <div className="hero">
-        <Calendar stDayData={setDayData} />
+        <Calendar setDayData={setDayData}/>
         <div className="divisor"></div>
         <div className="options">
-          {!dayData.hasEvent ? <Scheduler /> : null}
-          {dayData.hasEvent ? <UpdateEvent data={dayData.eventData} /> : null}
+          { dayHasAnEvent() ? <Scheduler/> : <UpdateEvent data={dayData.eventData}/> }
         </div>
       </div>
     </DateProvider>

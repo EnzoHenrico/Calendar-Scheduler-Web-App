@@ -5,9 +5,9 @@ import { DateContext } from '../../contexts/date';
 import { patch, reqDelete } from '../../api';
 
 const UpdateEvent = ({ data }) => {
-  const { date } = useContext(DateContext);
+  const { currentDate } = useContext(DateContext);
 
-  const { year, month, day } = date;
+  const { year, month, day } = currentDate;
   const { _id, eventName, initDate, endDate, description } = data;
 
   const [updatedEventName, setUpdateName] = useState(eventName);

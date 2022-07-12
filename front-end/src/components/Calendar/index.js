@@ -6,19 +6,19 @@ import MonthSelector from '../MonthSelector';
 import YearSelector from '../YearSelector';
 import './calendar.css';
 
-const Calendar = ({ setDayData }) => {
-  const { days, date, setDate } = useContext(DateContext);
+const Calendar = ({setDayData}) => {
+  const { days, currentDate, setCurrentDate } = useContext(DateContext);
 
   return (
     <div className="calendar">
       <div className="date-selectors">
         <YearSelector
-          value={date.year}
-          onChange={(year) => setDate((prev) => ({ ...prev, year }))}
+          value={currentDate.year}
+          onChange={(year) => setCurrentDate((prev) => ({ ...prev, year }))}
         />
         <MonthSelector
-          value={date.month}
-          onChange={(month) => setDate((prev) => ({ ...prev, month }))}
+          value={currentDate.month}
+          onChange={(month) => setCurrentDate((prev) => ({ ...prev, month }))}
         />
       </div>
       <div className="days-board">
@@ -28,7 +28,7 @@ const Calendar = ({ setDayData }) => {
             day={day.day}
             events={day.events}
             onClick={() => {
-              setDate((prev) => ({ ...prev, day: day.day }));
+              setCurrentDate((prev) => ({ ...prev, day: day.day }));
               setDayData({ hasEvent: false, eventData: null });
             }}
             onEventClick={(e) => setDayData(e)}
