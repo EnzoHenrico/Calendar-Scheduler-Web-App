@@ -22,6 +22,8 @@
 - [ ] Implement user avatar in database
   - [ ] user can upload a new avatar
   - [ ] When account created give a default one
+- [ ] Render calender from the current day
+- [ ] Implement a visual event resume with all data when user click on event
 
 ---
 
@@ -34,5 +36,3 @@
 - [ ] Do e-mail pattern verification on client-side
   - [ ] if e-mail is valid send to server
   - [ ] if e-mail aren't registered redirect to registration
-
-This line is a test
