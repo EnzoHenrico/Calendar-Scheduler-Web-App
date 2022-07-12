@@ -2,10 +2,10 @@
 
 #### To fix things:
 
-- [ ] Rebuild all front end structure with "React context"
+- [x] Rebuild all front end structure with "React context"
 - [ ] Do a better and scalable component division
 - [ ] Make all style responsive
-- [ ] Fix date refresh in events
+- [x] Fix date refresh in events
 - [ ] Refresh calendar when changes are made
 
 ---
