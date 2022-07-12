@@ -34,3 +34,5 @@
 - [ ] Do e-mail pattern verification on client-side
   - [ ] if e-mail is valid send to server
   - [ ] if e-mail aren't registered redirect to registration
+
+This line is a test
