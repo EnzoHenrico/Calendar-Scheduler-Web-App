@@ -4,6 +4,7 @@ import cors from 'cors';
 
 import authentication from './api/controllers/authentication.js';
 import events from './api/controllers/events.js';
+import user from './api/controllers/user.js'
 import database from './database.js';
 
 dotenv.config();
@@ -25,6 +26,8 @@ app.use('/api/v1', router);
 // Set routes
 router.use('/authentication', authentication);
 router.use('/events', events);
+router.use('/user', user);
+
 
 // Server initial log
 app.listen(PORT, () => console.log(`server listen on localhost:${PORT}`));
