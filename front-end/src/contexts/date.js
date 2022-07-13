@@ -1,10 +1,9 @@
-import { useState, useEffect, createContext } from 'react';
-
-import { get } from '../api';
+import { useState, createContext } from 'react';
 
 const DateContext = createContext();
 
 const DateProvider = ({ children }) => {
+  const [updateCalendar, setUpdate] = useState(false);
   const [dayFramesArray, setDayFrames] = useState([]);
   const [currentDate, setCurrentDate] = useState({
     year: new Date().getFullYear(),
@@ -12,25 +11,9 @@ const DateProvider = ({ children }) => {
     dayNumber: new Date().getDate(),
   });
 
-  const getUserEvents = async () => {
-    try {
-      const { year, month } = currentDate;
-      const timestamp = new Date(year, month - 1, 1).getTime();
-      const response = await get(
-        `http://localhost:3001/api/v1/events/${timestamp}`,
-      );
-      setDayFrames(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    getUserEvents();
-  }, [currentDate.year, currentDate.month]);
-
   return (
     <DateContext.Provider
-      value={{ dayFramesArray, currentDate, setCurrentDate }}
+      value={{ dayFramesArray, currentDate, setCurrentDate, setDayFrames, updateCalendar, setUpdate }}
     >
       {children}
     </DateContext.Provider>

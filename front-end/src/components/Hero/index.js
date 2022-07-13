@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import Scheduler from '../Scheduler';
 import Calendar from '../Calendar';
-import UpdateEvent from '../UpdateEvent';
+import EventPanel from '../EventPanel';
 import { DateProvider } from '../../contexts/date';
 import './hero.css';
 
@@ -22,7 +22,7 @@ const Hero = () => {
         <Calendar setDayData={setDayData}/>
         <div className="divisor"></div>
         <div className="options">
-          { dayHasAnEvent() ? <Scheduler/> : <UpdateEvent data={dayData.eventData}/> }
+          { dayHasAnEvent() ? <Scheduler/> : <EventPanel eventData={dayData.eventData}/> }
         </div>
       </div>
     </DateProvider>

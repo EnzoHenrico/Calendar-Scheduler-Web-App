@@ -9,7 +9,7 @@ const Scheduler = () => {
   const [endHour, setEndDate] = useState('');
   const [description, setDescription] = useState('');
 
-  const { currentDate } = useContext(DateContext);
+  const { currentDate, setUpdate } = useContext(DateContext);
 
   const postNewEvent = async (body) => {
     try {
@@ -17,6 +17,7 @@ const Scheduler = () => {
         'http://localhost:3001/api/v1/events/',
         JSON.stringify(body),
       );
+      setUpdate(true);
       console.log(response);
     } catch (error) {
       console.log(error);
