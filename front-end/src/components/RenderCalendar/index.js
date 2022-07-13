@@ -18,11 +18,11 @@ const RenderCalendar = ({ setDayData }) => {
             events={dayFrame.events}
             onClick={() => {
               setCurrentDate((prev) => ({ ...prev, day: dayFrame.day }));
-              setDayData({ hasEvent: false, eventData: null });
+              setDayData({ type: 'scheduler' });
             }}
-            onEventClick={(data) => {
+            onEventClick={(event) => {
               setCurrentDate((prev) => ({ ...prev, day: dayFrame.day }));
-              setDayData(data);
+              setDayData({ type: 'event', event });
             }}
           />
         ))

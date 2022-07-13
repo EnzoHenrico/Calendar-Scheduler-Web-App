@@ -12,14 +12,14 @@ const DayFrame = ({ dayNumber, events, onClick, onEventClick }) => {
     <div className="day-frame">
       <label htmlFor={dayNumber}>{dayNumber}</label>
       <div className="frames">
-        {events.map((data) => (
+        {events.map((eventData) => (
           <button
             className="event-button"
             type="button"
-            key={data._id}
-            onClick={() => onEventClick({ hasEvent: true, eventData: data })}
+            key={eventData._id}
+            onClick={() => onEventClick(eventData)}
           >
-            {buildEventLabel(data)}
+            {buildEventLabel(eventData)}
           </button>
         ))}
         {/* Extra day button to add another event in the same day */}
