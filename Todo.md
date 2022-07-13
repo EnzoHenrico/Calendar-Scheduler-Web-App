@@ -4,9 +4,9 @@
 
 - [x] Rebuild all front end structure with "React context"
 - [x] Do a better and scalable component division
-- [ ] Make all style responsive
 - [x] Fix date refresh in events
 - [x] Refresh calendar when changes are made
+- [ ] Remake style and make all responsive
 
 ---
 
@@ -17,7 +17,7 @@
 
 #### To implement things:
 
-- [ ] Show username on login header
+- [x] Show username on login header
 - [ ] Implement e-mail on register
 - [ ] Implement user avatar in database
   - [ ] user can upload a new avatar
