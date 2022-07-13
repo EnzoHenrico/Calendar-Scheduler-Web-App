@@ -47,15 +47,15 @@ const Scheduler = () => {
       parseInt(endTime[1]),
     );
 
-    const options = {
+    const payload = {
       eventName,
       initDate,
       endDate,
       description,
     };
 
-    console.log(options);
-    postNewEvent(options);
+    console.log(payload);
+    postNewEvent(payload);
   };
 
   return (
@@ -64,7 +64,7 @@ const Scheduler = () => {
         <div className="container-header">
           <h3>Create Event</h3>
           <p>
-            Current Day: {currentDate.day}/{currentDate.month}/{currentDate.year}
+            Date: {currentDate.day}/{currentDate.month}/{currentDate.year}
           </p>
         </div>
         <input

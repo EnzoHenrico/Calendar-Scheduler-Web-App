@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 
 import './update.css';
 import { DateContext } from '../../../contexts/date';
-import { patch, reqDelete } from '../../../api';
+import { patch } from '../../../api';
 
 const UpdateEvent = ({ data }) => {
   const { setUpdate } = useContext(DateContext);
@@ -25,17 +25,6 @@ const UpdateEvent = ({ data }) => {
       console.log(error);
     }
   };
-  const deleteEvent = async (eventId) => {
-    try {
-      const response = await reqDelete(
-        `http://localhost:3001/api/v1/events/${eventId}`,
-      );
-      setUpdate(true);
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -48,9 +37,7 @@ const UpdateEvent = ({ data }) => {
     console.log('BODY', update);
     updateValues(update);
   };
-  const handleDelete = () => {
-    deleteEvent(data._id);
-  };
+  
 
   return (
     <form onSubmit={handleSubmit} className="update-container">
@@ -93,9 +80,6 @@ const UpdateEvent = ({ data }) => {
       </div>
       <button className="update-button" type="submit">
         Update
-      </button>
-      <button type="button" className="delete-button" onClick={handleDelete}>
-        Delete
       </button>
     </form>
   );

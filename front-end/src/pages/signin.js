@@ -4,18 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import './signin.css';
 
 const Signin = () => {
-  // Input state setters
   const [error, setError] = useState('');
   const [username, setUser] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-
-  // Submit form handler
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const userData = { username, password };
-    postSignin(userData);
-  };
 
   // Http POST request in api
   const postSignin = async (userData) => {
@@ -46,7 +38,12 @@ const Signin = () => {
     }
   };
 
-  // Login component
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const userData = { username, password };
+    postSignin(userData);
+  };
+
   return (
     <div className="background">
       <h1>Calendar</h1>
