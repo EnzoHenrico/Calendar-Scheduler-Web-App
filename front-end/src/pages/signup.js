@@ -5,6 +5,7 @@ import './signup.css';
 
 const Signup = () => {
   const [error, setError] = useState('');
+  const [email, setEmail ] = useState('');
   const [username, setUser] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setConfirmKey] = useState('');
@@ -38,7 +39,7 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const userData = { username, password, passwordConfirm };
+    const userData = { email, username, password, passwordConfirm };
 
     postSignup(userData);
   };
@@ -48,6 +49,15 @@ const Signup = () => {
       <h1>Calendar</h1>
       <form className="register-context" onSubmit={handleSubmit}>
         <div className="signup-container">
+        <div className="username-fields">
+            <label htmlFor="email">Email:</label>
+            <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+              id="email"
+            ></input>
+          </div>
           <div className="username-fields">
             <label htmlFor="username">Username:</label>
             <input

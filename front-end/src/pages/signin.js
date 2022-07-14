@@ -5,7 +5,7 @@ import './signin.css';
 
 const Signin = () => {
   const [error, setError] = useState('');
-  const [username, setUser] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
@@ -40,7 +40,7 @@ const Signin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const userData = { username, password };
+    const userData = { email, password };
     postSignin(userData);
   };
 
@@ -50,12 +50,12 @@ const Signin = () => {
       <form className="login-context" onSubmit={handleSubmit}>
         <div className="signin-container">
           <div className="username-fields">
-            <label htmlFor="login">Username:</label>
+            <label htmlFor="login">Email:</label>
             <input
               type="text"
               id="login"
-              value={username}
-              onChange={(e) => setUser(e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             ></input>
           </div>
           <div className="password-fields">
