@@ -7,21 +7,21 @@ import strings from '../models/strings.js';
 const errorMessages = strings.errors.auth;
 const successMessages = strings.success.auth;
 
-async function registerUser(username, password) {
+async function registerUser(email, username, password) {
   try {
-    const usernameExists = await User.findOne({ username });
+    const emailExists = await User.findOne({ email });
 
-    // If username unavailable return error
-    if (usernameExists) {
-      return { status: 409, payload: { message: errorMessages.username } };
+    // If email unavailable return error
+    if (emailExists) {
+      return { status: 409, payload: { message: errorMessages.email } };
     }
 
     // If available add on database
-    const values = { username, password };
+    const values = { email, username, password };
     await User.create(values);
 
     // Get mongoDb Id and send to controller
-    const { _id: userId } = await User.findOne({ username });
+    const { _id: userId } = await User.findOne({ email });
     return {
       status: 201,
       payload: { message: successMessages.created, userId },
@@ -37,9 +37,9 @@ async function registerUser(username, password) {
   }
 }
 
-async function verifyLogin(username, inputPassword) {
+async function verifyLogin(email, inputPassword) {
   try {
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ email });
 
     // Verify if user does not exist in DB
     if (!user) {
@@ -48,7 +48,7 @@ async function verifyLogin(username, inputPassword) {
         payload: { message: errorMessages.credentials },
       };
     }
-    const { _id: userId, password: dbPassword, events: userEvents } = user;
+    const { _id: userId, username, password: dbPassword, events: userEvents } = user;
     const passwordMatch = await bcrypt.compare(inputPassword, dbPassword);
     // Verify if password match with DB
     if (!passwordMatch) {
