@@ -1,11 +1,15 @@
-import { GridFsStorage } from 'multer-gridfs-storage';
+import multer from "multer";
 
-import connection from '../../database.js';
+const storage = multer.diskStorage({
+  destination: (req, file, callback) => {
+    callback(null, 'uploads/');
+  },
+  filename: (req, file, callback) => {
+    let date = new Date().toISOString();
+    callback(null, date + file.originalname);
+  }
+});
 
-const storage = new GridFsStorage({ url: connection});
+const upload = multer({ storage: storage });
 
-async function uploadFile() {
- // Create an upload image middleware here 
-};
-
-export default uploadFile;
+export default upload;

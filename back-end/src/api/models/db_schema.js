@@ -27,6 +27,12 @@ UserSchema.virtual('events', {
   foreignField: '_author',
 });
 
+UserSchema.virtual('image', {
+  ref: 'Image',
+  localField: '_id',
+  foreignField: '_user',
+});
+
 // Events data schema
 const EventSchema = new Schema({
   _author: {
@@ -40,7 +46,21 @@ const EventSchema = new Schema({
   description: String,
 });
 
+// User Image schema
+const ImageSchema = new Schema({
+  _user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
+  img: {
+    data: Buffer,
+    contentType: String,
+  },
+}); 
+
 const User = mongoose.model('User', UserSchema);
 const Event = mongoose.model('Event', EventSchema);
+const Image = mongoose.model('Image', ImageSchema);
 
-export { User, Event };
+export { User, Event, Image };
