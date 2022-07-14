@@ -23,7 +23,7 @@
   - [ ] user can upload a new avatar
   - [ ] When account created give a default one
 - [ ] Render calender from the current day
-- [ ] Implement a visual event resume with all data when user click on event
+- [x] Implement a visual event resume with all data when user click on event
 
 ---
 

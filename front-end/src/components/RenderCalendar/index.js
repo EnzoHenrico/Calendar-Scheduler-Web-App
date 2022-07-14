@@ -5,8 +5,6 @@ import DayFrame from './DayFrame';
 
 const RenderCalendar = ({ setDayData }) => {
   const { dayFramesArray, setCurrentDate } = useContext(DateContext);
-  console.log(dayFramesArray);
-
   return (
     <>
       {

@@ -11,8 +11,8 @@ const Calendar = ({ setDayData }) => {
 
   const getUserEvents = async () => {
     try {
-      const { year, month } = currentDate;
-      const timestamp = new Date(year, month - 1, 1).getTime();
+      const { year, month, dayNumber } = currentDate;
+      const timestamp = new Date(year, month - 1, dayNumber).getTime();
       const response = await get(
         `http://localhost:3001/api/v1/events/${timestamp}`,
       );

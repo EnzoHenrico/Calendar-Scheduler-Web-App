@@ -7,22 +7,26 @@ import './header.css';
 const Header = () => {
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
-  
 
   const handleLogout = () => {
     localStorage.clear();
     navigate('/signin');
   };
 
+  const handleEditProfile = () => {
+
+  }
+
   return (
     <div className="header">
-      <div className="title">Calendar</div>
-      <div className="profile">
-        <div className="text">
-          <p>{user.username}</p>
+      <div className="logo">Calendar</div>
+      <div className="user-profile">
+        <p>{user.username}</p>
+        <div className="dropdown-options">
           <a onClick={handleLogout}>Logout</a>
+          <a onClick={handleEditProfile}>Edit</a>
         </div>
-        <div className="profile-img">{ /* user.avatar */ }</div>
+        <div className="user-avatar">{ /* user.avatar */ }</div>
       </div>
     </div>
   );

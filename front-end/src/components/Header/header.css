@@ -6,26 +6,27 @@
   align-items: center;
 }
 
-.header .title{
+.header a{
+  cursor: pointer;
+}
+
+.header .logo{
   font-size: 30px;
 }
 
-.header .profile{
+.header .user-profile{
   display: inline-flex;
   align-items: center;
   gap: 10px;
 }
 
-.header .profile .text{
+.header .user-profile .dropdown-options{
   display: flex;
   flex-direction: column;
-  font-size: 26px;
-}
-.header .profile .text a{
-font-size: 16px;
+  font-size: 16px;
 }
 
-.header .profile-img{
+.header .user-avatar{
 width: 80px;
 height: 80px;
 border-radius: 50%;
