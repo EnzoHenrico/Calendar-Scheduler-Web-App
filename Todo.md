@@ -18,8 +18,8 @@
 #### To implement things:
 
 - [x] Show username on login header
-- [ ] Implement e-mail on register
-- [ ] Implement user avatar in database
+- [x] Implement e-mail on register
+- [x] Implement user avatar in database
   - [ ] user can upload a new avatar
   - [ ] When account created give a default one
 - [ ] Render calender from the current day
