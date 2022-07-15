@@ -4,9 +4,8 @@ import { get } from '../../api';
 import { DateContext } from '../../contexts/date';
 import DateSelector from '../DateSelector';
 import RenderCalendar from '../RenderCalendar';
-import './calendar.css';
 
-const Calendar = ({ setDayData }) => {
+const Calendar = ({ setDayData, openModal }) => {
   const { currentDate, setCurrentDate, setDayFrames , updateCalendar, setUpdate } = useContext(DateContext);
 
   const getUserEvents = async () => {
@@ -36,7 +35,7 @@ const Calendar = ({ setDayData }) => {
         />
       </div>
       <div className="days-board">
-        <RenderCalendar setDayData={setDayData} />
+        <RenderCalendar setDayData={setDayData} openModal={openModal}/>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import './monthSelector.css';
+
 const MonthSelector = ({ value, onChange }) => {
   const handleChange = (e) => {
     onChange(e.currentTarget.value);

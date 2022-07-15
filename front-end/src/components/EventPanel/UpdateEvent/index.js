@@ -1,8 +1,10 @@
 import { useState, useContext } from 'react';
 
-import './update.css';
-import { DateContext } from '../../../contexts/date';
 import { patch } from '../../../api';
+import styles from './Update.module.css';
+import input from '../../StyleComponents/Inputs.module.css';
+import button from '../../StyleComponents/Buttons.module.css';
+import { DateContext } from '../../../contexts/date';
 
 const UpdateEvent = ({ data }) => {
   const { setUpdate } = useContext(DateContext);
@@ -40,47 +42,52 @@ const UpdateEvent = ({ data }) => {
   
 
   return (
-    <form onSubmit={handleSubmit} className="update-container">
-      <div className="event-container">
-        <h3>Update Event</h3>
+    <form onSubmit={handleSubmit} className={styles.formBody}>
+      <div className={styles.inputArea}>
+      <label htmlFor="name">Name:</label>
         <input
+          className={input.default}
           placeholder={eventName}
           value={updatedEventName}
+          id="name"
           onChange={(e) => setUpdateName(e.target.value)}
-        ></input>
-        <div className="line"></div>
-        <div className="date-inputs">
-          <label htmlFor="event-starts">Starts at:</label>
-          <input
-            value={updatedInitDate}
-            onChange={(e) => setUpdatedInitDate(e.target.value)}
-            type="time"
-            maxLength={2}
-            id="event-starts"
-          ></input>
-          <label htmlFor="event-ends">Ends at:</label>
-          <input
-            value={updatedEndDate}
-            onChange={(e) => setUpdatedEndDate(e.target.value)}
-            type="time"
-            maxLength="2"
-            id="event-ends"
-          ></input>
-        </div>
-        <div className="desciption-input">
-          <label htmlFor="event-description">Description:</label>
-          <input
-            value={updatedDescription}
-            onChange={(e) => setUpdatedDescription(e.target.value)}
-            type="text"
-            placeholder={description}
-            id="event-description"
-          ></input>
-        </div>
+        />
       </div>
-      <button className="update-button" type="submit">
-        Update
-      </button>
+      <div className={styles.inputArea}>
+        <label htmlFor="description">Description:</label>
+        <input
+          className={input.default}
+          value={updatedDescription}
+          onChange={(e) => setUpdatedDescription(e.target.value)}
+          type="text"
+          placeholder={description}
+          id="description"
+        />
+      </div>
+      <div className={styles.inputArea}>
+        <label htmlFor="start">Starts from:</label>
+        <input
+          className={input.default}
+          value={updatedInitDate}
+          onChange={(e) => setUpdatedInitDate(e.target.value)}
+          type="time"
+          maxLength={2}
+          id="start"
+        />
+        to
+        <input
+          className={input.default}
+          value={updatedEndDate}
+          onChange={(e) => setUpdatedEndDate(e.target.value)}
+          type="time"
+          maxLength="2"
+        />
+      </div>
+      <div className={styles.sendButton}>
+        <button className={button.send} type="submit">
+          Update
+        </button>
+      </div>
     </form>
   );
 };

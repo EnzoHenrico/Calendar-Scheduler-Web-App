@@ -1,13 +1,13 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Home from './pages/home';
-import Signin from './pages/signin';
 import Signup from './pages/signup';
+import Signin from './pages/signin';
 import ErrorPage from './pages/errorPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

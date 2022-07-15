@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/user';
 
-import './header.css';
+import styles from './Header.module.css';
 
 const Header = () => {
   const { user } = useContext(UserContext);
@@ -18,7 +18,7 @@ const Header = () => {
   }
 
   return (
-    <div className="header">
+    <div className={styles.header}>
       <div className="logo">Calendar</div>
       <div className="user-profile">
         <p>{user.username}</p>

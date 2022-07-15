@@ -2,6 +2,7 @@ import { useContext } from 'react';
 
 import { reqDelete } from '../../../api';
 import { DateContext } from '../../../contexts/date';
+import button from '../../StyleComponents/Buttons.module.css';
 
 const DeleteEvent = ({ eventId }) => {
   const { setUpdate } = useContext(DateContext);
@@ -27,7 +28,7 @@ const DeleteEvent = ({ eventId }) => {
   };
 
   return(
-    <button type="button" className="delete-button" onClick={handleDelete}>
+    <button type="button" className={button.delete} onClick={handleDelete}>
       Delete
     </button>
   );

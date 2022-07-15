@@ -23,5 +23,8 @@ Solução para o desafio Técnico para vaga de estágio na Tokenlab.
 
 ### Preview:
 
-Estilo inicial(Em desenvolvimento):
-![Preview tela principal](./Screenshot_4.png)
+Novo Estilo(v2)(Em desenvolvimento):
+
+- Modals: 
+![Preview modal de criação de evento](./Screenshot_1.png)
+![Preview modal de edição de evento](./Screenshot_2.png)

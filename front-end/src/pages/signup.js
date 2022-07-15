@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import './signup.css';
 
 const Signup = () => {
   const [error, setError] = useState('');

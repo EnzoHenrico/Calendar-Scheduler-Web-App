@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { DateContext } from '../../contexts/date';
 import DayFrame from './DayFrame';
 
-const RenderCalendar = ({ setDayData }) => {
+const RenderCalendar = ({ setDayData, openModal }) => {
   const { dayFramesArray, setCurrentDate } = useContext(DateContext);
   return (
     <>
@@ -17,10 +17,12 @@ const RenderCalendar = ({ setDayData }) => {
             onClick={() => {
               setCurrentDate((prev) => ({ ...prev, day: dayFrame.day }));
               setDayData({ type: 'scheduler' });
+              openModal();
             }}
             onEventClick={(event) => {
               setCurrentDate((prev) => ({ ...prev, day: dayFrame.day }));
               setDayData({ type: 'event', event });
+              openModal();
             }}
           />
         ))

@@ -1,0 +1,11 @@
+.default {
+  margin: auto 1em;
+  padding: 1em;
+  border: none;
+}
+
+.invisible {
+  padding: 0.25em 1em;
+  border: none;
+  background: none;
+}

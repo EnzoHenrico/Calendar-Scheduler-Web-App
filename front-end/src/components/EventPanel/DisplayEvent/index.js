@@ -1,6 +1,7 @@
 import { useContext } from "react";
 
 import { DateContext } from "../../../contexts/date";
+import styles from './Display.module.css';
 
 const DisplayEvent = ({ data }) => {
   const { currentDate } = useContext(DateContext);
@@ -15,17 +16,10 @@ const DisplayEvent = ({ data }) => {
   const endMinutes = new Date(endDate).getMinutes() + 1;
 
   return(
-    <div className="display-event">
-        <h3>{eventName}</h3>
-        <p>
-          Date: {day}/{month}/{year}{' '}
-        </p>
-        <p>
-          Hour: {initHour}:{initMinutes} to {endHour}:{endMinutes}{' '}
-        </p>
-        <p>
-          Description: {description}
-        </p>
+    <div className={styles.displayBox}>
+        <h2>{eventName}</h2>
+        <p>{day}/{month}/{year} - {initHour}:{initMinutes} to {endHour}:{endMinutes}</p>
+        <p>{description}</p>
     </div>
   );
 };

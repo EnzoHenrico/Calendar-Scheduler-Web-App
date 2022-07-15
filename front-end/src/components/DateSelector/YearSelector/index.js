@@ -1,4 +1,3 @@
-import './yearSelector.css';
 
 const YearSelector = ({ value, onChange }) => {
   const increment = () => {
