@@ -1,3 +1,4 @@
+import styles from '../Selector.module.css';
 
 const YearSelector = ({ value, onChange }) => {
   const increment = () => {
@@ -8,12 +9,12 @@ const YearSelector = ({ value, onChange }) => {
     onChange(value - 1);
   };
   return (
-    <div className="year-selector">
+    <div className={styles.year}>
       <div>{value}</div>
       <div className="buttons">
         <button
           type="button"
-          className="arrow-button"
+          className={styles.arrows}
           id="up"
           onClick={increment}
         >
@@ -21,7 +22,7 @@ const YearSelector = ({ value, onChange }) => {
         </button>
         <button
           type="button"
-          className="arrow-button"
+          className={styles.arrows}
           id="down"
           onClick={decrement}
         >

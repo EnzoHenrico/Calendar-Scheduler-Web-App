@@ -1,33 +1,27 @@
-import { format } from 'date-fns';
+import styles from './Day.module.css';
 
 const DayFrame = ({ dayNumber, events, onClick, onEventClick }) => {
-  const buildEventLabel = (data, dayNumber) => {
-    return `${dayNumber} ${data.eventName} 
-    ${format(new Date(data.initDate), 'HH:mm')} - 
-    ${format(new Date(data.endDate), 'HH:mm')}`;
-  };
-
   return (
-    <div className="day-frame">
-      <div className="frames">
+    <div className={styles.frames}>
+      <div className={styles.dayNumber}>{dayNumber}</div>
+      <div className={styles.events}>
         {events.map((eventData) => (
           <button
-            className="event-button"
+            className={styles.filled}
             type="button"
             key={eventData._id}
             onClick={() => onEventClick(eventData)}
           >
-            {buildEventLabel(eventData, dayNumber)}
+            {eventData.eventName}
           </button>
         ))}
-        {/* Extra day button to add another event in the same day */}
         <button
-          className="empty-button"
+          className={styles.empty}
           type="button"
           id={dayNumber}
           onClick={onClick}
         >
-          {dayNumber} +
+          +
         </button>
       </div>
     </div>

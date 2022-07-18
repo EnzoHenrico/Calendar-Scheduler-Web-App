@@ -1,0 +1,41 @@
+.frames {
+  padding: 1rem;
+  border: solid 1px gray;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 5rem;
+}
+
+.events {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  overflow: auto;
+  overflow-x: hidden;
+  transition: background-color .8s;
+}
+
+.events::-webkit-scrollbar{
+  width: 2px;
+  height: 10px;
+}
+
+.events:hover::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+
+.filled {
+  border: none;
+  background-color: rgb(109, 109, 248);
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.empty {
+  border: none;
+  background-color: rgb(253, 250, 246);
+  padding: 0.5rem;
+  cursor: pointer;
+}

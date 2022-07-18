@@ -39,16 +39,14 @@ const UpdateEvent = ({ data }) => {
     console.log('BODY', update);
     updateValues(update);
   };
-  
 
   return (
     <form onSubmit={handleSubmit} className={styles.formBody}>
       <div className={styles.inputArea}>
-      <label htmlFor="name">Name:</label>
+        <label htmlFor="name">Name:</label>
         <input
           className={input.default}
           placeholder={eventName}
-          value={updatedEventName}
           id="name"
           onChange={(e) => setUpdateName(e.target.value)}
         />
@@ -57,7 +55,6 @@ const UpdateEvent = ({ data }) => {
         <label htmlFor="description">Description:</label>
         <input
           className={input.default}
-          value={updatedDescription}
           onChange={(e) => setUpdatedDescription(e.target.value)}
           type="text"
           placeholder={description}
@@ -68,7 +65,6 @@ const UpdateEvent = ({ data }) => {
         <label htmlFor="start">Starts from:</label>
         <input
           className={input.default}
-          value={updatedInitDate}
           onChange={(e) => setUpdatedInitDate(e.target.value)}
           type="time"
           maxLength={2}

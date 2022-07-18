@@ -65,14 +65,16 @@ const Scheduler = () => {
     <form onSubmit={handleSubmit} className={styles.formBody}>
       <div className={styles.formHeader}>
         <h2>Create Event</h2>
-        <p>{currentDate.day} / {currentDate.month} / {currentDate.year}</p>
+        <p>
+          {currentDate.day} / {currentDate.month} / {currentDate.year}
+        </p>
       </div>
       <div className={styles.divisor}></div>
       <div className={styles.inputArea}>
-      <label htmlFor="name">Event name:</label>
+        <label htmlFor="name">Event name:</label>
         <input
           className={input.default}
-          id='name'
+          id="name"
           value={eventName}
           onChange={(e) => setEventName(e.target.value)}
         />
@@ -87,30 +89,30 @@ const Scheduler = () => {
           id="description"
         />
       </div>
-        <div className={styles.inputArea}>
-        <label htmlFor="event-ends">Starts from:</label>
-        <input
-          className={input.default}
-          value={endHour}
-          onChange={(e) => setEndDate(e.target.value)}
-          type="time"
-          placeholder="HH"
-          maxLength="2"
-          id="event-ends"
-        />
-        to
+      <div className={styles.inputArea}>
+        <label htmlFor="start">Starts from:</label>
         <input
           className={input.default}
           value={initHour}
           onChange={(e) => setInitDate(e.target.value)}
           type="time"
           placeholder="HH"
-          maxLength={2}
-          id="event-starts"
+          maxLength="2"
+          id="start"
+        />
+        to
+        <input
+          className={input.default}
+          value={endHour}
+          onChange={(e) => setEndDate(e.target.value)}
+          type="time"
+          maxLength="2"
         />
       </div>
       <div className={styles.sendButton}></div>
-      <button className={button.send} type="submit">Create</button>
+      <button className={button.send} type="submit">
+        Create
+      </button>
     </form>
   );
 };

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Modal from 'react-modal'
+import Modal from 'react-modal';
 
 import Scheduler from '../Scheduler';
 import Calendar from '../Calendar';
@@ -17,11 +17,11 @@ const Hero = () => {
 
   const handleOpenModal = () => {
     setIsOpen(true);
-  }
+  };
 
   const handleCloseModal = () => {
     setIsOpen(false);
-  }
+  };
 
   const customStyles = {
     content: {
@@ -39,17 +39,21 @@ const Hero = () => {
   return (
     <DateProvider>
       <div className={styles.heroContainer}>
-        <Calendar setDayData={setDayData} openModal={handleOpenModal}/>        
-        <Modal 
-          isOpen={modalIsOpen} 
+        <Calendar setDayData={setDayData} openModal={handleOpenModal} />
+        <Modal
+          isOpen={modalIsOpen}
           onRequestClose={handleCloseModal}
           style={customStyles}
         >
-          <button className={button.close} onClick={handleCloseModal}>X</button>
+          <button className={button.close} onClick={handleCloseModal}>
+            X
+          </button>
           <div className={styles.modalContainer}>
             {dayData.type === 'scheduler' && <Scheduler />}
-            {dayData.type === 'event' && <EventPanel eventData={dayData.event} />}
-          </ div>
+            {dayData.type === 'event' && (
+              <EventPanel eventData={dayData.event} />
+            )}
+          </div>
         </Modal>
       </div>
     </DateProvider>
