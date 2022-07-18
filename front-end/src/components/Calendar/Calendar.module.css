@@ -1,7 +1,5 @@
 .board{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(70px, auto));
-  gap: 0.25rem;
-  max-width: 95%;
-  margin: auto;
+  grid-template-columns: repeat(7, minmax(1rem, 10rem));
+  max-width: 100%;
 }

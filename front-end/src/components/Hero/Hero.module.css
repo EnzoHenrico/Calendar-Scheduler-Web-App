@@ -1,6 +1,6 @@
-.heroContainer {  
-  padding: 1rem;
-  border: solid 1px gray;
+.heroContainer {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .modalContainer {
