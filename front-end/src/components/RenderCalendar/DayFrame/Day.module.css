@@ -1,10 +1,14 @@
 .frames {
-  padding: 0.2rem;
   display: flex;
   flex-direction: column;
+  padding: 1rem;
   gap: 0.2rem;
-  width: minmax(1rem, 10rem);
-  height: 5rem;
+  height: 10rem;
+  border-right: solid 1px rgba(0, 0, 0, 0.144);
+  border-bottom: solid 1px rgba(0, 0, 0, 0.144);
+}
+.frames:hover{
+  background-color: rgb(249, 250, 255);
 }
 
 .events {
@@ -30,6 +34,9 @@
   background-color: rgb(109, 109, 248);
   padding: 0.5rem;
   cursor: pointer;
+  border-radius: 8px;
+  color: white;
+  font-size: small;
 }
 
 .empty {
@@ -37,4 +44,5 @@
   background-color: rgb(253, 250, 246);
   padding: 0.5rem;
   cursor: pointer;
+  border-radius: 8px;
 }
