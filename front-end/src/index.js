@@ -9,20 +9,23 @@ import Home from './pages/home';
 import Signup from './pages/signup';
 import Signin from './pages/signin';
 import ErrorPage from './pages/errorPage';
+import styles from './Page.module.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="signin" element={<Signin />} />
-        <Route path="signup" element={<Signup />} />
-        <Route path="home" element={<Home />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
-    </React.StrictMode>
-  </BrowserRouter>,
+  <div className={styles.page}>
+    <BrowserRouter>
+      <React.StrictMode>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="signin" element={<Signin />} />
+          <Route path="signup" element={<Signup />} />
+          <Route path="home" element={<Home />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </React.StrictMode>
+    </BrowserRouter>
+  </div>,
 );
 
 // If you want to start measuring performance in your app, pass a function

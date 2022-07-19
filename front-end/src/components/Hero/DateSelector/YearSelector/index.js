@@ -1,4 +1,4 @@
-import styles from '../Selector.module.css';
+import styles from '../Selectors.module.css';
 
 const YearSelector = ({ value, onChange }) => {
   const increment = () => {
@@ -8,10 +8,11 @@ const YearSelector = ({ value, onChange }) => {
   const decrement = () => {
     onChange(value - 1);
   };
+
   return (
     <div className={styles.year}>
       <div>{value}</div>
-      <div className="buttons">
+      <div className={styles.arrowsLayout}>
         <button
           type="button"
           className={styles.arrows}

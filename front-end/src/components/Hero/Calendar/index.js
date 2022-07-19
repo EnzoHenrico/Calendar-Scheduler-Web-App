@@ -1,12 +1,13 @@
 import { useContext } from 'react';
 
-import { DateContext } from '../../contexts/date';
+import { DateContext } from '../../../contexts/date';
 import DayFrame from './DayFrame';
+import styles from './Calendar.module.css';
 
-const RenderCalendar = ({ setDayData, openModal }) => {
+const Calendar = ({ setDayData, openModal }) => {
   const { dayFramesArray, setCurrentDate } = useContext(DateContext);
   return (
-    <>
+    <div className={styles.calendar}>
       {
         // Render each DayFrame
         dayFramesArray.map((dayFrame) => (
@@ -27,8 +28,8 @@ const RenderCalendar = ({ setDayData, openModal }) => {
           />
         ))
       }
-    </>
+    </div>
   );
 };
 
-export default RenderCalendar;
+export default Calendar;

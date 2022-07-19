@@ -1,0 +1,28 @@
+.layout{
+  display: flex;
+  border: solid;
+  padding: 0.5rem;
+  gap: 1rem;
+}
+
+.month{
+  -webkit-appearance: none;
+  border: none;
+  font-size: small;
+  cursor: pointer;
+}
+
+.year{
+  display: flex;
+  gap: 0.5rem;
+}
+
+.arrowsLayout{
+  display: flex;
+  gap: 0.25rem;
+}
+
+.arrows{
+  border: none;
+  background: none;            
+}

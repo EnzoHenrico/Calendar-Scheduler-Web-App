@@ -13,9 +13,7 @@ const Header = () => {
     navigate('/signin');
   };
 
-  const handleEditProfile = () => {
-
-  }
+  const handleEditProfile = () => {};
 
   return (
     <div className={styles.header}>
@@ -26,7 +24,7 @@ const Header = () => {
           <a onClick={handleLogout}>Logout</a>
           <a onClick={handleEditProfile}>Edit</a>
         </div>
-        <div className="user-avatar">{ /* user.avatar */ }</div>
+        <div className="user-avatar">{/* user.avatar */}</div>
       </div>
     </div>
   );

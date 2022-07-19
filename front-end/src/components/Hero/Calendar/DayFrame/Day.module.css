@@ -3,30 +3,29 @@
   flex-direction: column;
   padding: 1rem;
   gap: 0.2rem;
-  height: 10rem;
   border-right: solid 1px rgba(0, 0, 0, 0.144);
   border-bottom: solid 1px rgba(0, 0, 0, 0.144);
+  max-height: 100%;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 .frames:hover{
   background-color: rgb(249, 250, 255);
+}
+
+.frames::-webkit-scrollbar{
+  width: 2px;
+  height: 10px;
+}
+
+.frames:hover::-webkit-scrollbar-thumb {
+  background-color: black;
 }
 
 .events {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  overflow: auto;
-  overflow-x: hidden;
-  transition: background-color .8s;
-}
-
-.events::-webkit-scrollbar{
-  width: 2px;
-  height: 10px;
-}
-
-.events:hover::-webkit-scrollbar-thumb {
-  background-color: black;
 }
 
 .filled {

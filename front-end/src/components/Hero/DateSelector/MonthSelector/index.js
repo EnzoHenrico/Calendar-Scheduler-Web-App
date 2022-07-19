@@ -1,3 +1,4 @@
+import styles from '../Selectors.module.css';
 
 const MonthSelector = ({ value, onChange }) => {
   const handleChange = (e) => {
@@ -5,7 +6,7 @@ const MonthSelector = ({ value, onChange }) => {
   };
   return (
     <>
-      <select value={value} onChange={handleChange} className="month-selector">
+      <select value={value} onChange={handleChange} className={styles.month}>
         <option value={1}>January</option>
         <option value={2}>February</option>
         <option value={3}>March</option>

@@ -1,9 +1,10 @@
-.heroContainer {
-  display: flex;
-  justify-content: flex-end;
+.hero {
+  display: flexbox;
+  width: 100%;
+  height: 100%;
 }
 
-.modalContainer {
+.modal {
   background-color: rgb(253, 250, 246);
   padding: 2rem;
   border: none;
