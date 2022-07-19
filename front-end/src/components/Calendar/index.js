@@ -35,7 +35,7 @@ const Calendar = ({ setDayData, openModal }) => {
   }, [currentDate.year, currentDate.month, updateCalendar]);
 
   return (
-    <div className="calendar">
+    <div className={styles.calendar}>
       <div className="date-selectors">
         <DateSelector
           currentDate={currentDate}
