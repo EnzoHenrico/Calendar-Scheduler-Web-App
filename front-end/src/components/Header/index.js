@@ -15,18 +15,19 @@ const Header = () => {
 
   return (
     <div className={styles.header}>
-      <div className={styles.logo}>
-        <img src={require('./logo7.png')} />
-      </div>
-      <div className={styles.user}>
-        <div className={styles.buttons}>
-          <p>Hello! {user.username}</p>
-          <a onClick={handleLogout}>Logout</a>
+        <div className={styles.logo}>
+          <img src={require('./logo7.png')} />
         </div>
-        <div className={styles.userAvatar}>
-          <img src={require('./user.png')} />
+        <div className={styles.user}>
+          <div className={styles.buttons}>
+            <p>Hello! {user.username}</p>
+            <a onClick={handleLogout}>Logout</a>
+          </div>
+          {/* Add a modal on profile click */}
+          <div className={styles.userAvatar}>
+            <img src={require('./user.png')} />
+          </div>
         </div>
-      </div>
     </div>
   );
 };

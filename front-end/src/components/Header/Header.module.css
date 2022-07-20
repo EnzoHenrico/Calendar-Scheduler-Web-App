@@ -2,6 +2,7 @@
   flex-shrink: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: rgb(234, 230, 255);
 }
 
@@ -26,9 +27,24 @@
 
 .logo img{
   width: 100px;
-  margin: 0.8rem 1rem;
+  margin: 1rem;
 }
 
 .userAvatar img{
   width: 50px;
+}
+
+@media only screen and (max-width: 425px){ 
+  
+  .logo img{
+    width: 70px;
+  } 
+ 
+  .userAvatar img{
+    width: 40px;
+  } 
+
+  .buttons{
+    display: none;
+  }
 }
