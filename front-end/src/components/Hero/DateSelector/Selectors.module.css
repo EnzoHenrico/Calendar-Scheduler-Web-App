@@ -1,20 +1,27 @@
 .layout{
+  padding: 1rem 0rem;
   display: flex;
-  border: solid;
-  padding: 0.5rem;
-  gap: 1rem;
+  gap: 0.5rem;
+  background-color: rgb(253 250 246);
+  border-right: solid 1px rgba(0, 0, 0, 0.144);
+  flex-direction: column;
 }
 
 .month{
   -webkit-appearance: none;
+  text-align: center;
+  background: none;
   border: none;
-  font-size: small;
   cursor: pointer;
+  box-sizing: content-box;
 }
 
 .year{
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 0.5rem;
+  cursor: default;
 }
 
 .arrowsLayout{
@@ -24,5 +31,6 @@
 
 .arrows{
   border: none;
-  background: none;            
+  background: none;
+  cursor: pointer;
 }

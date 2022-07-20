@@ -13,7 +13,7 @@ import styles from './Page.module.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <div className={styles.page}>
+  <div className={styles.container}>
     <BrowserRouter>
       <React.StrictMode>
         <Routes>

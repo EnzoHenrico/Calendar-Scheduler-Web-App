@@ -25,10 +25,9 @@ Solução para o desafio Técnico para vaga de estágio na Tokenlab.
 
 Novo Estilo(v2)(Em desenvolvimento):
 
-- Estilo calendario:
-![Preview calendário desktop media](./Screenshot_3.png)
-
+- Layout da Página:
+  ![Preview Homepage desktop media](./Screenshot_3.png)
 
 - Estilo dos Modais:
-![Preview modal de criação de evento](./Screenshot_1.png)
-![Preview modal de edição de evento](./Screenshot_2.png)
+  ![Preview modal de criação de evento](./Screenshot_1.png)
+  ![Preview modal de edição de evento](./Screenshot_2.png)
