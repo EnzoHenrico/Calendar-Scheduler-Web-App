@@ -1,7 +1,7 @@
 .frames {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 1rem 0rem 1rem 1rem;
   gap: 0.2rem;
   border-right: solid 1px rgba(0, 0, 0, 0.144);
   border-bottom: solid 1px rgba(0, 0, 0, 0.144);
@@ -33,15 +33,29 @@
   background-color: rgb(109, 109, 248);
   padding: 0.5rem;
   cursor: pointer;
-  border-radius: 8px;
   color: white;
   font-size: small;
 }
 
 .empty {
+  color: rgba(0, 0, 0, 0.089);
   border: none;
   background-color: rgb(253, 250, 246);
   padding: 0.5rem;
   cursor: pointer;
   border-radius: 8px;
+}
+
+@media only screen and (max-width: 768px){ 
+  .frames{
+  }
+}
+@media only screen and (max-width: 425px){ 
+  .frames{
+    padding: 0rem;
+  }
+  .dayNumber{
+    margin-left: 0.5rem;
+  }
+
 }

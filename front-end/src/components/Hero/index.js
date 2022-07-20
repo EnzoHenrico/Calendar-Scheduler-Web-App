@@ -78,8 +78,8 @@ const Hero = () => {
           X
         </button>
         <div className={styles.modal}>
-          {dayData.type === 'scheduler' && <Scheduler />}
-          {dayData.type === 'event' && <EventPanel eventData={dayData.event} />}
+          {dayData.type === 'scheduler' && <Scheduler modalOpened={handleCloseModal} />}
+          {dayData.type === 'event' && <EventPanel eventData={dayData.event} modalOpened={handleCloseModal} />}
         </div>
       </Modal>
     </div>

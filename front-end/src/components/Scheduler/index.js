@@ -6,7 +6,7 @@ import styles from './Scheduler.module.css';
 import input from '../StyleComponents/Inputs.module.css';
 import button from '../StyleComponents/Buttons.module.css';
 
-const Scheduler = () => {
+const Scheduler = ({ modalOpened }) => {
   const [eventName, setEventName] = useState('');
   const [initHour, setInitDate] = useState('');
   const [endHour, setEndDate] = useState('');
@@ -21,7 +21,8 @@ const Scheduler = () => {
         JSON.stringify(body),
       );
       setUpdate(true);
-      console.log(response);
+      modalOpened(false);
+      alert('Event created sucessfully!');
     } catch (error) {
       console.log(error);
     }

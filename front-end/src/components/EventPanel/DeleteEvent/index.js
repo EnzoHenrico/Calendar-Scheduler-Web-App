@@ -4,7 +4,7 @@ import { reqDelete } from '../../../api';
 import { DateContext } from '../../../contexts/date';
 import button from '../../StyleComponents/Buttons.module.css';
 
-const DeleteEvent = ({ eventId }) => {
+const DeleteEvent = ({ eventId, modalOpened }) => {
   const { setUpdate } = useContext(DateContext);
 
   const deleteEvent = async (eventId) => {
@@ -13,7 +13,8 @@ const DeleteEvent = ({ eventId }) => {
         `http://localhost:3001/api/v1/events/${eventId}`,
       );
       setUpdate(true);
-      console.log(response);
+      modalOpened(false);
+      alert('Event updated successfully!');
     } catch (error) {
       console.log(error);
     }

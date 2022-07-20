@@ -6,7 +6,7 @@ import input from '../../StyleComponents/Inputs.module.css';
 import button from '../../StyleComponents/Buttons.module.css';
 import { DateContext } from '../../../contexts/date';
 
-const UpdateEvent = ({ data }) => {
+const UpdateEvent = ({ data, modalOpened }) => {
   const { setUpdate } = useContext(DateContext);
   const { _id, eventName, initDate, endDate, description } = data;
 
@@ -22,7 +22,8 @@ const UpdateEvent = ({ data }) => {
         JSON.stringify(body),
       );
       setUpdate(true);
-      console.log(response);
+      modalOpened(false);
+      alert('Event updated successfully!');
     } catch (error) {
       console.log(error);
     }
