@@ -13,18 +13,19 @@ const Header = () => {
     navigate('/signin');
   };
 
-  const handleEditProfile = () => {};
-
   return (
     <div className={styles.header}>
-      <div className="logo">Calendar</div>
-      <div className="user-profile">
-        <p>{user.username}</p>
-        <div className="dropdown-options">
+      <div className={styles.logo}>
+        <img src={require('./logo7.png')} />
+      </div>
+      <div className={styles.user}>
+        <div className={styles.buttons}>
+          <p>Hello! {user.username}</p>
           <a onClick={handleLogout}>Logout</a>
-          <a onClick={handleEditProfile}>Edit</a>
         </div>
-        <div className="user-avatar">{/* user.avatar */}</div>
+        <div className={styles.userAvatar}>
+          <img src={require('./user.png')} />
+        </div>
       </div>
     </div>
   );

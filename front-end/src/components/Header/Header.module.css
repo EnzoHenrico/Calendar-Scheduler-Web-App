@@ -1,3 +1,34 @@
 .header{
-  display: none;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(234, 230, 255);
+}
+
+.user{
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  cursor: default;
+}
+
+.buttons {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.buttons a {
+  font-size: small;
+  cursor: pointer;
+}
+
+.logo img{
+  width: 100px;
+  margin: 0.8rem 1rem;
+}
+
+.userAvatar img{
+  width: 50px;
 }
