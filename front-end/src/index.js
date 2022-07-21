@@ -9,11 +9,11 @@ import Home from './pages/home';
 import Signup from './pages/signup';
 import Signin from './pages/signin';
 import ErrorPage from './pages/errorPage';
-import styles from './Page.module.css';
+import styles from './Index.module.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <div className={styles.container}>
+  <div className={styles.wrapper}>
     <BrowserRouter>
       <React.StrictMode>
         <Routes>
