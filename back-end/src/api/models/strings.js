@@ -11,7 +11,7 @@ export default {
       matchKey: "Password don't match",
       token: 'Token creation error',
       foundToken: 'Can not found a Token',
-      username: 'Username in use',
+      email: 'Email already registered',
       credentials: 'Invalid Credentials',
       login: 'Error on login',
     },

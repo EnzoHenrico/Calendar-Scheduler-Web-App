@@ -1,28 +1,35 @@
-# Desafio Tecnico Tokenlab
+- Translation Portuguese: [Tradução PT_BR](translation_PTBR.md)
 
-Solução para o desafio Técnico para vaga de estágio na Tokenlab.
+# Calendar with event scheduler
 
-## Ferramentas e recursos utilizados para a solução:
+Web app that generates a calendar that can schedule events on chosen days.
+
+## Libraries and technologies used:
 
 ### BackEnd ↓
 
-- Arquitetura: Api REST
-- Principal: Node.JS (Javascript)
+- Main: Node.JS (Javascript)
+- Arch: Api REST
 - Database: MongoDB
-- Dependecias: Express, Mongoose, jsonwebtoken, bcrypt
-
-Outras informações:
-
-- Autenticação via JWT
-- Criptografia de senhas HASH
+- Libs: Express, Mongoose, jsonwebtoken, bcrypt
+- JWT authentication
+- HASH-based Cryptography
+- Storage e upload with Multer
 
 ### FrontEnd ↓
 
-- Componetização com React
-- Rotas e direcionamento com React Router
-- Estilização CSS3
-- Tratamento de 'Date' com Date-fns
+- Main: React
+- Routes and redirect with React Router
+- Styles CSS Modules
+- Dates with Date-fns
 
-### Preview:
+### Layout preview:
 
-![Preview tela principal](./Screenshot_4.png)
+Novo Estilo(v2):
+
+- Page layout:
+ -  ![Preview Homepage desktop media](./Screenshot_3.png)
+
+- Modals style:
+ - ![Preview modal de criação de evento](./Screenshot_1.png)
+ - ![Preview modal de edição de evento](./Screenshot_2.png)

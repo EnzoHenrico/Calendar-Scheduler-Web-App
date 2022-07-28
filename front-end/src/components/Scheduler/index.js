@@ -1,12 +1,18 @@
-import './scheduler.css';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { post } from '../../api';
+import { DateContext } from '../../contexts/date';
 
-const Scheduler = ({ date }) => {
+import styles from './Scheduler.module.css';
+import input from '../StyleComponents/Inputs.module.css';
+import button from '../StyleComponents/Buttons.module.css';
+
+const Scheduler = ({ modalOpened }) => {
   const [eventName, setEventName] = useState('');
   const [initHour, setInitDate] = useState('');
   const [endHour, setEndDate] = useState('');
   const [description, setDescription] = useState('');
+
+  const { currentDate, setUpdate } = useContext(DateContext);
 
   const postNewEvent = async (body) => {
     try {
@@ -14,7 +20,9 @@ const Scheduler = ({ date }) => {
         'http://localhost:3001/api/v1/events/',
         JSON.stringify(body),
       );
-      console.log(response);
+      setUpdate(true);
+      modalOpened(false);
+      alert('Event created sucessfully!');
     } catch (error) {
       console.log(error);
     }
@@ -25,7 +33,7 @@ const Scheduler = ({ date }) => {
 
     const initTime = initHour.split(':');
     const endTime = endHour.split(':');
-    const { year, month, day } = date;
+    const { year, month, day } = currentDate;
 
     const initDate = new Date(
       year,
@@ -43,63 +51,69 @@ const Scheduler = ({ date }) => {
       parseInt(endTime[1]),
     );
 
-    const options = {
+    const payload = {
       eventName,
       initDate,
       endDate,
       description,
     };
 
-    console.log(options);
-    postNewEvent(options);
+    console.log(payload);
+    postNewEvent(payload);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="options-container">
-      <div className="event-container">
-        <div className="container-header">
-          <h3>Create Event</h3>
-          <p>
-            Current Day: {date.day}/{date.month}/{date.year}
-          </p>
-        </div>
+    <form onSubmit={handleSubmit} className={styles.formBody}>
+      <div className={styles.formHeader}>
+        <h2>Create Event</h2>
+        <p>
+          {currentDate.day} / {currentDate.month} / {currentDate.year}
+        </p>
+      </div>
+      <div className={styles.divisor}></div>
+      <div className={styles.inputArea}>
+        <label htmlFor="name">Event name:</label>
         <input
-          placeholder="New Event"
+          className={input.default}
+          id="name"
           value={eventName}
           onChange={(e) => setEventName(e.target.value)}
-        ></input>
-        <div className="line"></div>
-        <div className="date-inputs">
-          <label htmlFor="event-starts">Starts at:</label>
-          <input
-            value={initHour}
-            onChange={(e) => setInitDate(e.target.value)}
-            type="time"
-            placeholder="HH"
-            maxLength={2}
-            id="event-starts"
-          ></input>
-          <label htmlFor="event-ends">Ends at:</label>
-          <input
-            value={endHour}
-            onChange={(e) => setEndDate(e.target.value)}
-            type="time"
-            placeholder="HH"
-            maxLength="2"
-            id="event-ends"
-          ></input>
-        </div>
-        <div className="desciption-input">
-          <label htmlFor="event-description">Description:</label>
-          <input
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            type="text"
-            id="event-description"
-          ></input>
-        </div>
+        />
       </div>
-      <button type="submit">Create</button>
+      <div className={styles.inputArea}>
+        <label htmlFor="description">Description:</label>
+        <input
+          className={input.default}
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          type="text"
+          id="description"
+        />
+      </div>
+      <div className={styles.inputArea}>
+        <label htmlFor="start">Starts from:</label>
+        <input
+          className={input.default}
+          value={initHour}
+          onChange={(e) => setInitDate(e.target.value)}
+          type="time"
+          placeholder="HH"
+          maxLength="2"
+          id="start"
+        />
+        to
+        <input
+          className={input.default}
+          value={endHour}
+          onChange={(e) => setEndDate(e.target.value)}
+          type="time"
+          maxLength="2"
+        />
+      </div>
+      <div className={styles.sendButton}></div>
+      <button className={button.send} type="submit">
+        Create
+      </button>
     </form>
   );
 };

@@ -1,12 +1,16 @@
 import Header from '../components/Header';
 import Hero from '../components/Hero';
+import { UserProvider } from '../contexts/user';
+import { DateProvider } from '../contexts/date';
 
 const Home = () => {
   return (
-    <div className="home">
-      <Header />
+    <DateProvider>
+      <UserProvider>
+        <Header />
+      </UserProvider>
       <Hero />
-    </div>
+    </DateProvider>
   );
 };
 

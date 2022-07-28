@@ -1,0 +1,49 @@
+.close {
+  border: none;
+  border-radius: 5px;
+  color: gray;
+  background: none;
+  cursor: pointer;
+  padding: 5px
+}
+
+.close:hover{
+  box-shadow: 2px 2px 3px 0px #0000003b;
+}
+
+.send {
+  background: rgb(232,230,255);
+  background: linear-gradient(90deg, rgba(232,230,255,1) 0%, rgba(231,231,235,1) 50%, rgba(220,249,255,1) 100%);
+  border: none;
+  padding: 1rem;
+  font-size: 16px;
+  color: rgb(102, 102, 102);
+  width: 100%;
+  cursor: pointer;
+}
+
+.send:hover{
+  box-shadow: 2px 2px 3px 0px #0000003b; 
+}
+
+.delete {
+  background: rgb(251,135,135);
+background: linear-gradient(90deg, rgba(251,135,135,1) 0%, rgba(250,157,175,1) 61%, rgba(255,230,238,1) 100%);
+  border: none;
+  padding: 1rem;
+  font-size: 16px;
+  color: rgb(102, 102, 102);
+  width: 100%;
+  cursor: pointer;
+}
+
+.delete:hover{
+  box-shadow: 2px 2px 3px 0px #0000003b;
+}
+
+.invisible{
+  background: none;
+  color: none;
+  border: none;
+  cursor: pointer;
+}

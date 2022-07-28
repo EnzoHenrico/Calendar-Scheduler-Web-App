@@ -1,0 +1,50 @@
+.header{
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(234, 230, 255);
+}
+
+.user{
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  cursor: default;
+}
+
+.text{
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.text button{
+  font-size: small;
+  cursor: pointer;
+}
+
+.logo img{
+  width: 100px;
+  margin: 1rem;
+}
+
+.userAvatar img{
+  width: 50px;
+}
+
+@media only screen and (max-width: 425px){ 
+  
+  .logo img{
+    width: 70px;
+  } 
+ 
+  .userAvatar img{
+    width: 40px;
+  } 
+
+  .buttons{
+    display: none;
+  }
+}

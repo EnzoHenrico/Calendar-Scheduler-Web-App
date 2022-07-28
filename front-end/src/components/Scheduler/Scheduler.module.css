@@ -1,0 +1,15 @@
+.formBody {
+  display: grid;
+}
+
+.formHeader{
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.inputArea{
+  margin: 1rem 0rem;
+}
+.sendButton{
+  margin-top: 1rem;
+}

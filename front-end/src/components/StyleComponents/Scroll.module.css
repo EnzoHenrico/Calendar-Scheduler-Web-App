@@ -1,0 +1,6 @@
+.calendar::-webkit-scrollbar {
+  background: black;
+  width: 2px;
+  height: 10px;
+  border-radius: 10px;
+}

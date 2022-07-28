@@ -1,7 +1,12 @@
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './header.css';
+import { UserContext } from '../../contexts/user';
 
-const Header = ({ username, profileImg }) => {
+import styles from './Header.module.css';
+import button from '../StyleComponents/Buttons.module.css';
+
+const Header = () => {
+  const { user } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -10,14 +15,24 @@ const Header = ({ username, profileImg }) => {
   };
 
   return (
-    <div className="header">
-      <div className="title">Calendar</div>
-      <div className="profile">
-        <div className="text">
-          <p>User{username}</p>
-          <a onClick={handleLogout}>Logout</a>
+    <div className={styles.header}>
+      <div className={styles.logo}>
+        <img
+          alt="Logo with calendar shape"
+          src={require('../../images/logo7.png')}
+        />
+      </div>
+      <div className={styles.user}>
+        <div className={styles.text}>
+          <p>Hello! {user.username}</p>
+          <button className={button.invisible} onClick={handleLogout}>
+            Logout
+          </button>
         </div>
-        <div className="profile-img">{profileImg}</div>
+        {/* Add a modal on profile click */}
+        <div className={styles.userAvatar}>
+          <img alt="User avatar" src={require('../../images/user.png')} />
+        </div>
       </div>
     </div>
   );

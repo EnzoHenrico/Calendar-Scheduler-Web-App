@@ -1,11 +1,6 @@
 import { Link } from 'react-router-dom';
 
 import './App.css';
-import './pages/body.css';
-// import Header from './components/header';
-// import Hero from './components/hero';
-// import Signin from './components/signin';
-// import Signup from './components/signup';
 
 const App = () => {
   return (
@@ -21,7 +16,7 @@ const App = () => {
           <Link to="/signup">Register</Link>
         </li>
       </ul>
-    </div>
+    </div>    
   );
 };
 
