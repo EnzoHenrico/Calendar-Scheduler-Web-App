@@ -9,14 +9,12 @@ const DeleteEvent = ({ eventId, modalOpened }) => {
 
   const deleteEvent = async (eventId) => {
     try {
-      const response = await reqDelete(
-        `http://localhost:3001/api/v1/events/${eventId}`,
-      );
+      await reqDelete(`http://localhost:3001/api/v1/events/${eventId}`);
       setUpdate(true);
       modalOpened(false);
-      alert('Event updated successfully!');
+      alert('Event deleted successfully!');
     } catch (error) {
-      console.log(error);
+      alert(error.message);
     }
   };
   
@@ -29,9 +27,11 @@ const DeleteEvent = ({ eventId, modalOpened }) => {
   };
 
   return(
-    <button type="button" className={button.delete} onClick={handleDelete}>
-      Delete
-    </button>
+    <>
+      <button type="button" className={button.delete} onClick={handleDelete}>
+        Delete
+      </button>
+    </>
   );
 }
 

@@ -6,14 +6,15 @@
 - [x] Do a better and scalable component division
 - [x] Fix date refresh in events
 - [x] Refresh calendar when changes are made
-- [ ] Remake style and make all responsive
+- [x] Remake style and make all responsive
 
 ---
 
 - [ ] When app starts open homepage
   - [ ] if user aren't authenticated redirect to login page
-- [ ] On login page add a create account button
-- [ ] Display login error to user when an error happens
+- [x] On login page add a create account button
+- [ ] On register page add 'or login' button
+- [ ] Display any error to user when an error happens
 
 #### To implement things:
 
@@ -28,11 +29,8 @@
 ---
 
 - [ ] Add a options menu in header user profile with:
-  - [ ] logout function
-  - [ ] change vatar function
+  - [ ] logout
+  - [ ] change vatar
 
 #### UX/UI Ideas
 
-- [ ] Do e-mail pattern verification on client-side
-  - [ ] if e-mail is valid send to server
-  - [ ] if e-mail aren't registered redirect to registration

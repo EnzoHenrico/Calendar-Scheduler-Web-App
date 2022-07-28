@@ -8,13 +8,15 @@ const get = async (endpoint) => {
   };
 
   const response = await fetch(endpoint, options);
-
+  const json = await response.json();
+  
   if (response.status === 401) {
     localStorage.clear();
     return;
   }
-
-  const json = response.json();
+  if (response.status != 200){ 
+    throw json
+  }
   return json;
 };
 
@@ -30,14 +32,13 @@ const post = async (endpoint, body) => {
     body,
   };
 
-  try {
-    const response = await fetch(endpoint, options);
+    const response = await fetch(endpoint, options);    
     const json = await response.json();
-    console.log(json);
+
+    if (response.status != 201){
+      throw json;
+    }
     return json;
-  } catch (error) {
-    console.log(error);
-  }
 };
 
 const patch = async (endpoint, body) => {
@@ -53,13 +54,16 @@ const patch = async (endpoint, body) => {
   };
 
   const response = await fetch(endpoint, options);
+  const json = await response.json();
 
   if (response.status === 401) {
     localStorage.clear();
     return;
   }
+  if (response.status != 200){ 
+    throw json
+  }
 
-  const json = response.json();
   return json;
 };
 
@@ -73,16 +77,13 @@ const reqDelete = async (endpoint) => {
       'Content-Type': 'application/json',
     },
   };
+    const response = await fetch(endpoint, options);
+    const json = await response.json();
 
-  const response = await fetch(endpoint, options);
-
-  if (response.status === 401) {
-    localStorage.clear();
-    return;
-  }
-
-  const json = response.json();
-  return json;
+    if (response.status != 200){ 
+      throw json;
+    }
+    return json;
 };
 
 const getToken = () => {

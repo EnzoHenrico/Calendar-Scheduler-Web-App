@@ -16,7 +16,7 @@ const Scheduler = ({ modalOpened }) => {
 
   const postNewEvent = async (body) => {
     try {
-      const response = await post(
+      await post(
         'http://localhost:3001/api/v1/events/',
         JSON.stringify(body),
       );
@@ -24,7 +24,7 @@ const Scheduler = ({ modalOpened }) => {
       modalOpened(false);
       alert('Event created sucessfully!');
     } catch (error) {
-      console.log(error);
+      alert(error.message)
     }
   };
 
@@ -51,6 +51,12 @@ const Scheduler = ({ modalOpened }) => {
       parseInt(endTime[1]),
     );
 
+    if(!eventName){
+      console.log('NUM TEM');
+      alert('All fields required');
+      return;
+    }
+
     const payload = {
       eventName,
       initDate,
@@ -58,7 +64,6 @@ const Scheduler = ({ modalOpened }) => {
       description,
     };
 
-    console.log(payload);
     postNewEvent(payload);
   };
 
@@ -76,7 +81,7 @@ const Scheduler = ({ modalOpened }) => {
         <input
           className={input.default}
           id="name"
-          value={eventName}
+          value={undefined}
           onChange={(e) => setEventName(e.target.value)}
         />
       </div>
