@@ -14,6 +14,7 @@ const router = express.Router();
 
 // Add new event in calendar
 router.post('/', authorizeToken, isDateValid, async (req, res) => {
+  console.log(req.body)
   const payload = { _author: req.user._id, ...req.body };
   const serviceResult = await createEvent(payload);
   res.status(serviceResult.status).json({ message: serviceResult.message });
@@ -38,8 +39,8 @@ router.patch('/:id', authorizeToken, async (req, res) => {
 
 // Delete a especif event
 router.delete('/:id', authorizeToken, async (req, res) => {
-  const serviceResult = await deleteEvent(req.params.id);
-  res.status(serviceResult.status).json(serviceResult.message);
+  const serviceResult = await deleteEvent(req.params.id);  
+  res.status(serviceResult.status).json({ message: serviceResult.message });
 });
 
 export default router;

@@ -13,9 +13,11 @@ async function createEvent(payload) {
     await Event.create(payload);
     return { status: 201, message: succesMessages.databse.create };
   } catch (error) {
+    console.log(error)
     return {
       status: 500,
-      message: `${errorMessages.database.create}: ${error.toString()}`,
+      error: error.toString(),
+      message: errorMessages.database.create,
     };
   }
 }
@@ -41,7 +43,8 @@ async function getEventbyMonth(date, author) {
   } catch (error) {
     return {
       status: 500,
-      message: `${errorMessages.database.read}: ${error.toString()}`,
+      error: error.toString(),
+      message: errorMessages.database.read,
     };
   }
 }
@@ -53,8 +56,9 @@ async function updateEvent(eventId, changes) {
   } catch (error) {
     return {
       status: 500,
-      message: `${errorMessages.database.unknown}: ${error.toString()}`,
-    };
+      error: error.toString(),
+      message: errorMessages.database.update,
+    }
   }
 }
 
@@ -63,9 +67,11 @@ async function deleteEvent(eventId) {
     await Event.findByIdAndDelete(eventId);
     return { status: 200, message: succesMessages.databse.delete };
   } catch (error) {
+    console.log(error);
     return {
       status: 500,
-      message: `${errorMessages.database.unknown}: ${error.toString()}`,
+      error: error.toString(),
+      message: errorMessages.database.delete,
     };
   }
 }

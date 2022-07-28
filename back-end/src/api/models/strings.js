@@ -1,10 +1,10 @@
 export default {
   errors: {
     database: {
-      create: 'Database: Create failed',
-      read: 'Database: Search failed',
-      update: 'Database: Update failed',
-      delete: 'Database: Delete failed',
+      create: 'Internal error in create data',
+      read: 'Internal error in read data',
+      update: 'Internal error in update data',
+      delete: 'Internal error delete data',
     },
     auth: {
       input: 'Username or password does not meet requirements',

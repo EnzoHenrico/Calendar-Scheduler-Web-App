@@ -23,7 +23,7 @@ router.get('/events', authorizeToken , async (req, res)=>{
   });
 });
 
-router.get('/events', authorizeToken , async (req, res)=>{
+router.get('/avatar', authorizeToken , async (req, res)=>{
   const serviceResult = await getUserAvatar(req.user_id);
   res.status(serviceResult.status)
   .json({
