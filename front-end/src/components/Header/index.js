@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/user';
 
 import styles from './Header.module.css';
+import button from '../StyleComponents/Buttons.module.css';
 
 const Header = () => {
   const { user } = useContext(UserContext);
@@ -15,19 +16,24 @@ const Header = () => {
 
   return (
     <div className={styles.header}>
-        <div className={styles.logo}>
-          <img src={require('./logo7.png')} />
+      <div className={styles.logo}>
+        <img
+          alt="Logo with calendar shape"
+          src={require('../../images/logo7.png')}
+        />
+      </div>
+      <div className={styles.user}>
+        <div className={styles.text}>
+          <p>Hello! {user.username}</p>
+          <button className={button.invisible} onClick={handleLogout}>
+            Logout
+          </button>
         </div>
-        <div className={styles.user}>
-          <div className={styles.buttons}>
-            <p>Hello! {user.username}</p>
-            <a onClick={handleLogout}>Logout</a>
-          </div>
-          {/* Add a modal on profile click */}
-          <div className={styles.userAvatar}>
-            <img src={require('./user.png')} />
-          </div>
+        {/* Add a modal on profile click */}
+        <div className={styles.userAvatar}>
+          <img alt="User avatar" src={require('../../images/user.png')} />
         </div>
+      </div>
     </div>
   );
 };

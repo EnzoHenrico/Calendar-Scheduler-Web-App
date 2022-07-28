@@ -14,13 +14,13 @@
   cursor: default;
 }
 
-.buttons {
+.text{
   display: flex;
   align-items: flex-end;
   flex-direction: column;
 }
 
-.buttons a {
+.text button{
   font-size: small;
   cursor: pointer;
 }

@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import styles from './Signin.module.css';
+import button from '../components/StyleComponents/Buttons.module.css';
+import input from '../components/StyleComponents/Inputs.module.css';
 
 const Signin = () => {
   const [error, setError] = useState('');
@@ -37,6 +40,10 @@ const Signin = () => {
     }
   };
 
+  const handleRedirect = () => {
+    navigate(`/signup`);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const userData = { email, password };
@@ -44,33 +51,35 @@ const Signin = () => {
   };
 
   return (
-    <div className="background">
-      <h1>Calendar</h1>
-      <form className="login-context" onSubmit={handleSubmit}>
-        <div className="signin-container">
-          <div className="username-fields">
-            <label htmlFor="login">Email:</label>
-            <input
-              type="text"
-              id="login"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            ></input>
-          </div>
-          <div className="password-fields">
-            <label htmlFor="key">Password:</label>
-            <input
-              type="password"
-              id="key"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            ></input>
-          </div>
-          <button className="login-button" type="submit">
-            login
-          </button>
-          <div className="error-message">{error}</div>
+    <div className={styles.background}>
+      <form className={styles.container} onSubmit={handleSubmit}>
+        <div className={styles.usernameFields}>
+          <label htmlFor="login">Email:</label>
+          <input
+            className={input.default}
+            type="text"
+            id="login"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          ></input>
         </div>
+        <div className={styles.passwordFields}>
+          <label htmlFor="key">Password:</label>
+          <input
+            className={input.default}
+            type="password"
+            id="key"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          ></input>
+        </div>
+        <a className={styles.redirect} onClick={handleRedirect}>
+          Or click here to create your account
+        </a>
+        <button className={button.send} type="submit">
+          login
+        </button>
+        <div className={styles.error}>{error}</div>
       </form>
     </div>
   );
