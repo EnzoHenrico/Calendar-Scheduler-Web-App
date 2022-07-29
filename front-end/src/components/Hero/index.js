@@ -38,7 +38,7 @@ const Hero = () => {
       const { year, month, dayNumber } = currentDate;
       const timestamp = new Date(year, month - 1, dayNumber).getTime();
       const response = await get(
-        `http://localhost:3001/api/v1/events/${timestamp}`,
+        `http://localhost:3001/api/v3/events/${timestamp}`,
       );
       console.log(response);
       setDayFrames(response);

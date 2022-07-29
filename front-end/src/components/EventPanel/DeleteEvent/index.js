@@ -9,7 +9,7 @@ const DeleteEvent = ({ eventId, modalOpened }) => {
 
   const deleteEvent = async (eventId) => {
     try {
-      await reqDelete(`http://localhost:3001/api/v1/events/${eventId}`);
+      await reqDelete(`http://localhost:3001/api/v3/events/${eventId}`);
       setUpdate(true);
       modalOpened(false);
       alert('Event deleted successfully!');

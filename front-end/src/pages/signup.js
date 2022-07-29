@@ -26,7 +26,7 @@ const Signup = () => {
 
     try {
       const response = await fetch(
-        'http://localhost:3001/api/v1/authentication/sign-up',
+        'http://localhost:3001/api/v3/authentication/sign-up',
         settings,
       );
       const data = await response.json();

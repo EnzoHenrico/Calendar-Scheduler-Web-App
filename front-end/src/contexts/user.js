@@ -8,7 +8,7 @@ const UserProvider = ({ children }) => {
 
   const getUser = async () => {
     try {
-      const { data } = await get('http://localhost:3001/api/v1/user/');
+      const { data } = await get('http://localhost:3001/api/v3/user/');
       setUser(data);
     } catch (error) {
       console.log(error);

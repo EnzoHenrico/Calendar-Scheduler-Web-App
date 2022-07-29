@@ -24,7 +24,7 @@ const Signin = () => {
 
     try {
       const response = await fetch(
-        'http://localhost:3001/api/v1/authentication/sign-in',
+        'http://localhost:3001/api/v3/authentication/sign-in',
         settings,
       );
       const { message, data, token } = await response.json();

@@ -17,14 +17,14 @@ const Scheduler = ({ modalOpened }) => {
   const postNewEvent = async (body) => {
     try {
       await post(
-        'http://localhost:3001/api/v1/events/',
+        'http://localhost:3001/api/v3/events/',
         JSON.stringify(body),
       );
       setUpdate(true);
       modalOpened(false);
       alert('Event created sucessfully!');
     } catch (error) {
-      alert(error.message)
+      alert(error.message);
     }
   };
 
@@ -52,7 +52,6 @@ const Scheduler = ({ modalOpened }) => {
     );
 
     if(!eventName){
-      console.log('NUM TEM');
       alert('All fields required');
       return;
     }

@@ -7,38 +7,58 @@ import button from '../../StyleComponents/Buttons.module.css';
 import { DateContext } from '../../../contexts/date';
 
 const UpdateEvent = ({ data, modalOpened }) => {
-  const { setUpdate } = useContext(DateContext);
+  const { currentDate, setUpdate } = useContext(DateContext);
   const { _id, eventName, initDate, endDate, description } = data;
 
   const [updatedEventName, setUpdateName] = useState(eventName);
-  const [updatedInitDate, setUpdatedInitDate] = useState(initDate);
-  const [updatedEndDate, setUpdatedEndDate] = useState(endDate);
+  const [updatedInitHour, setUpdatedInitHour] = useState(initDate);
+  const [updatedEndHour, setUpdatedEndHour] = useState(endDate);
   const [updatedDescription, setUpdatedDescription] = useState(description);
 
   const updateValues = async (body) => {
     try {
-      const response = await patch(
-        `http://localhost:3001/api/v1/events/${_id}`,
+      await patch(
+        `http://localhost:3001/api/v3/events/${_id}`,
         JSON.stringify(body),
       );
       setUpdate(true);
       modalOpened(false);
       alert('Event updated successfully!');
     } catch (error) {
-      console.log(error);
+      alert(error.message);
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const update = {
+
+    const initTime = updatedInitHour.split(':');
+    const endTime = updatedEndHour.split(':');
+    const { year, month, day } = currentDate;
+
+    const updatedInitDate = new Date(
+      year,
+      month - 1,
+      day,
+      parseInt(initTime[0]),
+      parseInt(initTime[1]),
+    );
+
+    const updatedEndDate = new Date(
+      year,
+      month - 1,
+      day,
+      parseInt(endTime[0]),
+      parseInt(endTime[1]),
+    );
+    
+    const payload = {
       eventName: updatedEventName,
       initDate: updatedInitDate,
-      ednDate: updatedEndDate,
+      endDate: updatedEndDate,
       description: updatedDescription,
     };
-    console.log('BODY', update);
-    updateValues(update);
+    updateValues(payload);
   };
 
   return (
@@ -66,7 +86,8 @@ const UpdateEvent = ({ data, modalOpened }) => {
         <label htmlFor="start">Starts from:</label>
         <input
           className={input.default}
-          onChange={(e) => setUpdatedInitDate(e.target.value)}
+          value={updatedInitHour}
+          onChange={(e) => setUpdatedInitHour(e.target.value)}
           type="time"
           maxLength={2}
           id="start"
@@ -74,8 +95,8 @@ const UpdateEvent = ({ data, modalOpened }) => {
         to
         <input
           className={input.default}
-          value={updatedEndDate}
-          onChange={(e) => setUpdatedEndDate(e.target.value)}
+          value={updatedEndHour}
+          onChange={(e) => setUpdatedEndHour(e.target.value)}
           type="time"
           maxLength="2"
         />

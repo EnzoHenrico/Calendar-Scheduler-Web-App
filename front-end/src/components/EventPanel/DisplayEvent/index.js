@@ -5,15 +5,17 @@ import styles from './Display.module.css';
 
 const DisplayEvent = ({ data }) => {
   const { currentDate } = useContext(DateContext);
+
+  console.log(data)
   
   const { eventName, initDate, endDate, description } = data;
   const { year, month, day } = currentDate;
 
-  const initHour = new Date(initDate).getHours() + 1;
-  const initMinutes = new Date(initDate).getMinutes() + 1;
+  const initHour = new Date(initDate).getHours();
+  const initMinutes = new Date(initDate).getMinutes().toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false});
 
-  const endHour = new Date(endDate).getHours() + 1;
-  const endMinutes = new Date(endDate).getMinutes() + 1;
+  const endHour = new Date(endDate).getHours();
+  const endMinutes = new Date(endDate).getMinutes().toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false});
 
   return(
     <div className={styles.displayBox}>
