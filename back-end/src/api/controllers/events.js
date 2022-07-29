@@ -32,9 +32,9 @@ router.get('/:time', authorizeToken, async (req, res) => {
 });
 
 // Update parametters from especifc event
-router.patch('/:id', authorizeToken, async (req, res) => {
+router.patch('/:id', authorizeToken, isDateValid, async (req, res) => {
   const serviceResult = await updateEvent(req.params.id, req.body);
-  res.status(serviceResult.status).json(serviceResult.message);
+  res.status(serviceResult.status).json({message: serviceResult.message});
 });
 
 // Delete a especif event

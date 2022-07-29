@@ -21,7 +21,7 @@ app.use(cors({ origin: 'http://localhost:3000' }));
 
 // Server parse JSON payloads & set initial router
 app.use(express.json());
-app.use('/api/v1', router);
+app.use('/api/v3', router);
 
 // Set routes
 router.use('/authentication', authentication);
