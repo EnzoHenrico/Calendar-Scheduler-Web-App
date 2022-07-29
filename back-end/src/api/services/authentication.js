@@ -31,7 +31,8 @@ async function registerUser(email, username, password) {
     return {
       status: 500,
       payload: {
-        message: `${strings.errors.database.unknown}: ${error.toString()}`,
+        error: error.toString(),
+        message: strings.errors.database.create,
       },
     };
   }
@@ -69,7 +70,8 @@ async function verifyLogin(email, inputPassword) {
     return {
       status: 500,
       payload: {
-        message: `${errorMessages.login}: ${error.toString()}`,
+        error: error.toString(),
+        message: strings.errors.database.read,
       },
     };
   }
