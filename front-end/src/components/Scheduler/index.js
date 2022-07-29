@@ -16,8 +16,8 @@ const Scheduler = ({ modalOpened }) => {
 
   const postNewEvent = async (body) => {
     try {
-      const response = await post(
-        'http://localhost:3001/api/v1/events/',
+      await post(
+        'http://localhost:3001/api/v2/events/',
         JSON.stringify(body),
       );
       setUpdate(true);
