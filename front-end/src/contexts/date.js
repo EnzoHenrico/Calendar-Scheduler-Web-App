@@ -11,9 +11,13 @@ const DateProvider = ({ children }) => {
     dayNumber: new Date().getDate(),
   });
 
+  const formattNumbers = (number) => {
+    return number.toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false});
+  }
+
   return (
     <DateContext.Provider
-      value={{ dayFramesArray, currentDate, setCurrentDate, setDayFrames, updateCalendar, setUpdate }}
+      value={{ dayFramesArray, currentDate, setCurrentDate, setDayFrames, updateCalendar, setUpdate, formattNumbers }}
     >
       {children}
     </DateContext.Provider>

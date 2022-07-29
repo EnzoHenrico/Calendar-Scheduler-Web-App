@@ -12,7 +12,10 @@ const Scheduler = ({ modalOpened }) => {
   const [endHour, setEndDate] = useState('');
   const [description, setDescription] = useState('');
 
-  const { currentDate, setUpdate } = useContext(DateContext);
+  const { currentDate, setUpdate, formattNumbers } = useContext(DateContext);
+
+  const displayDay = formattNumbers(currentDate.day);
+  const displayMonth = formattNumbers(currentDate.month);
 
   const postNewEvent = async (body) => {
     try {
@@ -71,7 +74,7 @@ const Scheduler = ({ modalOpened }) => {
       <div className={styles.formHeader}>
         <h2>Create Event</h2>
         <p>
-          {currentDate.day} / {currentDate.month} / {currentDate.year}
+          {displayDay} / {displayMonth} / {currentDate.year}
         </p>
       </div>
       <div className={styles.divisor}></div>
