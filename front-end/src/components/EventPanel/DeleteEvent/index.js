@@ -9,8 +9,8 @@ const DeleteEvent = ({ eventId, modalOpened }) => {
 
   const deleteEvent = async (eventId) => {
     try {
-      const response = await reqDelete(
-        `http://localhost:3001/api/v1/events/${eventId}`,
+      await reqDelete(
+        `http://localhost:3001/api/v2/events/${eventId}`,
       );
       setUpdate(true);
       modalOpened(false);

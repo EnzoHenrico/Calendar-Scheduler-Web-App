@@ -17,8 +17,8 @@ const UpdateEvent = ({ data, modalOpened }) => {
 
   const updateValues = async (body) => {
     try {
-      const response = await patch(
-        `http://localhost:3001/api/v1/events/${_id}`,
+      await patch(
+        `http://localhost:3001/api/v2/events/${_id}`,
         JSON.stringify(body),
       );
       setUpdate(true);
