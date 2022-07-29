@@ -23,11 +23,11 @@ Aplicação web que gera um calendário que pode armazenar eventos nos dias esco
 
 ### Preview:
 
-Novo Estilo(v2)(Em desenvolvimento):
+Novo Estilo(v2):
 
 - Layout da Página:
   ![Preview Homepage desktop media](./Screenshot_3.png)
 
 - Estilo dos Modais:
-  ![Preview modal de criação de evento](./Screenshot_1.png)
-  ![Preview modal de edição de evento](./Screenshot_2.png)
+  - ![Preview modal de criação de evento](./Screenshot_1.png)
+  - ![Preview modal de edição de evento](./Screenshot_2.png)
