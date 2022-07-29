@@ -43,3 +43,11 @@
   font-size: small;
   cursor: pointer;
 }
+
+/* 425px mobile version */
+@media only screen and (max-width: 425px){ 
+
+  .container{
+    width: 90%;
+  }
+}

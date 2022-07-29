@@ -6,8 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Home from './pages/home';
-import Signup from './pages/signup';
-import Signin from './pages/signin';
+import Signup from './pages/Signup';
+import Signin from './pages/Signin';
 import ErrorPage from './pages/errorPage';
 import styles from './Index.module.css';
 

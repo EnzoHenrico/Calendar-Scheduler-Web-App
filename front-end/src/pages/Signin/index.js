@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './Signin.module.css';
-import button from '../components/StyleComponents/Buttons.module.css';
-import input from '../components/StyleComponents/Inputs.module.css';
+import button from '../../components/StyleComponents/Buttons.module.css';
+import input from '../../components/StyleComponents/Inputs.module.css';
 
 const Signin = () => {
   const [error, setError] = useState('');

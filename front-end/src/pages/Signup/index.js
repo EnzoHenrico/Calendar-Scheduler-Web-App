@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './Signup.module.css';
-import button from '../components/StyleComponents/Buttons.module.css';
-import input from '../components/StyleComponents/Inputs.module.css';
+import button from '../../components/StyleComponents/Buttons.module.css';
+import input from '../../components/StyleComponents/Inputs.module.css';
 
 const Signup = () => {
-  const [error, setError] = useState('');
+  const [errorMessage, setError] = useState('');
   const [email, setEmail] = useState('');
   const [username, setUser] = useState('');
   const [password, setPassword] = useState('');
@@ -29,13 +29,13 @@ const Signup = () => {
         'http://localhost:3001/api/v3/authentication/sign-up',
         settings,
       );
-      const data = await response.json();
+      const json = await response.json();
       if (response.status === 201) {
-        console.log(data);
         navigate('/signin');
       }
+      throw json;
     } catch (error) {
-      console.log(error);
+      console.log(error) // Display error message
     }
   };
 
@@ -44,6 +44,10 @@ const Signup = () => {
     const userData = { email, username, password, passwordConfirm };
 
     postSignup(userData);
+  };
+
+  const handleRedirect = () => {
+    navigate(`/signin`);
   };
 
   return (
@@ -87,11 +91,15 @@ const Signup = () => {
             id="confirmKey"
           ></input>
         </div>
+        <a className={styles.redirect} onClick={handleRedirect}>
+          Already have an account? Login Here.
+        </a>
         <div
           className={styles.error}
+          value={errorMessage}
           onChange={(e) => setError(e.target.value)}
         >
-          {error}
+          {errorMessage}
         </div>
         <button className={button.send} type="submit">
           Send
