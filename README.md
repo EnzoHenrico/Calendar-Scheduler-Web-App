@@ -25,7 +25,7 @@ Web app that generates a calendar that can schedule events on chosen days.
 
 ### Layout preview:
 
-Novo Estilo(v2):
+New Style(v2):
 
 - Page layout:
  -  ![Preview Homepage desktop media](./Screenshot_3.png)
